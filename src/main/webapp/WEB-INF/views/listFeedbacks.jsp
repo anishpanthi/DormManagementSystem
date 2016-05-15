@@ -27,7 +27,7 @@
 			</c:forEach>
 		</table>
 		<br/><br/>
-		<a href="/dorm">Goto Home</a>
+		<a href="/dormmanagement">Goto Home</a>
 	</div>
 </body>
 </html>
