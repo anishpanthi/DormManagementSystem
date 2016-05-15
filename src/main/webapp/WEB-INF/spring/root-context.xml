@@ -23,6 +23,7 @@
 	<context:component-scan base-package="com.apub.dorm.service.impl"></context:component-scan>
 	<context:component-scan base-package="com.apub.dorm.authhandler"></context:component-scan>
 	<context:component-scan base-package="com.apub.dorm.aop"></context:component-scan>
+	<context:property-placeholder location="classpath:application.properties" />
 
 	<bean id="authSuccessHandler" class="com.apub.dorm.authhandler.AuthSuccessHandler" />
 	<bean id="traceAdvice" class="com.apub.dorm.aop.TraceAdvice"/>
@@ -51,16 +52,20 @@
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 	</bean>
 
+	
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
+		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter">
+		</property>
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.hbm2ddl.auto">validate</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-				<prop key="connection.pool.size">1</prop>
-				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="connection.pool.size">${connection.pool.size}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="use_sql_comments">${use_sql_comments}</prop>
 			</props>
 		</property>
 		<property name="packagesToScan" value="com.apub.dorm.domain" />
@@ -68,9 +73,9 @@
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost/dormmgmt" />
-		<property name="username" value="root" />
-		<property name="password" value="1234567890" />
+		<property name="driverClassName" value="${db.driver}"></property>
+		<property name="url" value="${db.url}"></property>
+		<property name="username" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
 	</bean>
 </beans>
