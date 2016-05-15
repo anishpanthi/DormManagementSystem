@@ -8,20 +8,21 @@
 <link rel="stylesheet" href="resources/css/login.css" />
 </head>
 <body onload='document.loginForm.username.focus();'>
+	<%@ include file="header.jsp"%>
 	<div class="container">
 		<div class="card card-container">
 			<a href="/dormmanagement">Goto Home</a> <img id="profile-img"
 				class="profile-img-card"
 				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 			<p id="profile-name" class="profile-name-card"></p>
-			
+
 			<c:if test="${not empty authFailed}">
 				<div class="alert alert-danger">${authFailed}</div>
 			</c:if>
 			<c:if test="${not empty msg}">
 				<div class="alert alert-success">${msg}</div>
 			</c:if>
-			
+
 			<c:url value="${request.contextPath}/j_spring_security_check"
 				var="loginUrl" />
 			<form name='loginForm' action="${loginUrl}" method='POST'

@@ -12,7 +12,10 @@
 <title>APUB - Dormitory Management System - Feedbacks</title>
 </head>
 <body>
-	<h1 align="center"><spring:message code="feedback.label.heading" /></h1>
+	<%@ include file="header.jsp"%>
+	<h1 align="center">
+		<spring:message code="feedback.label.heading" />
+	</h1>
 	<div class="container">
 		<table class="table table-striped">
 			<th>First Name</th>
@@ -26,8 +29,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<br/><br/>
-		<a href="/dormmanagement">Goto Home</a>
+		<br />
+		<br /> <a href="/dormmanagement">Goto Home</a>
 	</div>
 </body>
 </html>

@@ -11,6 +11,7 @@
 <title>APUB - Dormitory Management System - Feedback</title>
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 	<div class="container">
 		<h1 align="center">Please Provide Your Valuable Feedback.</h1>
 		<form action="feedback" method="post">

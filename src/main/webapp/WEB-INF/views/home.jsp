@@ -9,10 +9,12 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 	<div class="container">
-		<br /> <span style="float: right"> <a href="?lang=en"><spring:message code="home.label.english" /></a>
-			| <a href="?lang=np"><spring:message code="home.label.nepali" /></a>
-		</span>
+<%-- 		<br /> <span style="float: right"> <a href="?lang=en"><spring:message --%>
+<%-- 					code="home.label.english" /></a> | <a href="?lang=np"><spring:message --%>
+<%-- 					code="home.label.nepali" /></a> --%>
+<!-- 		</span> -->
 		<h1 align="center">
 			<spring:message code="home.label.heading" />
 		</h1>

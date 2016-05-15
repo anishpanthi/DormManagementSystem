@@ -9,6 +9,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 	<div class="container">
 		<c:url value="/j_spring_security_logout" var="logoutUrl" />
 		<form action="${logoutUrl}" method="post" id="logoutForm">
@@ -27,12 +28,14 @@
 				<c:if test="${pageContext.request.userPrincipal.name != null}">
 					<p class=" text-info">
 						Welcome : ${pageContext.request.userPrincipal.name} | <a
-							href="javascript:formSubmit()"> <spring:message code="auth.label.logout" /></a>
+							href="javascript:formSubmit()"> <spring:message
+								code="auth.label.logout" /></a>
 					</p>
 				</c:if>
 			</div>
 		</div>
-		<p><h1>This is Admin Page.</h1>
+		<p>
+		<h1>This is Admin Page.</h1>
 	</div>
 </body>
 </html>
