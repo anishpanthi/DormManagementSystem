@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@page session="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ page session="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,32 +21,33 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-<script src="<c:url value="/resources/js/dateTimePicker.js" />"></script>
+<script src='<c:url value="/resources/js/dateTimePicker.js" />'></script>
+<script src='<c:url value="/resources/js/buildingChange.js" />'></script>
 </head>
 <body>
 	<div class="container">
-		<form id="assignmentForm" class="form-horizontal" action="room/assign"
-			method="post">
+		<form:form id="assignmentForm" class="form-horizontal"
+			action="room/assign" method="post" modelAttribute="RoomAssignment">
 			<div class="form-group">
 				<label for="studentId" class="col-xs-3 control-label">StudentId</label>
 				<div class="col-xs-5">
-					<input type="text" required class="form-control" id="studentId"
-						name="studentId" placeholder="Student ID" />
+					<form:input type="text" class="form-control" id="studentId"
+						path="studentId" placeholder="Student ID" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="email" class="col-xs-3 control-label">Email</label>
 				<div class="col-xs-5">
-					<input type="email" required class="form-control" id="email"
-						name="email" placeholder="Email" />
+					<form:input type="email" class="form-control" id="email"
+						path="email" placeholder="Email" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-xs-3 control-label">Date</label>
 				<div class="col-xs-5 date">
 					<div class="input-group input-append date" id="datePicker">
-						<input type="text" class="form-control" required name="date" /> <span
-							class="input-group-addon add-on"><span
+						<form:input type="text" class="form-control" path="date" />
+						<span class="input-group-addon add-on"><span
 							class="glyphicon glyphicon-calendar"></span></span>
 					</div>
 				</div>
@@ -53,20 +55,20 @@
 			<div class="form-group">
 				<label for="buildingNo" class="col-xs-3 control-label">Building</label>
 				<div class="col-xs-5">
-					<select name="buildingNo" class="form-control">
-						<option value="">--Select--</option>
+					<form:select path="buildingNo" id="buildingNo" class="form-control">
+						<form:option value="">--Select--</form:option>
 						<c:forEach var="building" items="${buildings}">
-							<option value="${building.buildingNo}">${building.buildingNo}</option>
+							<form:option value="${building.buildingNo}">${building.buildingNo}</form:option>
 						</c:forEach>
-					</select>
+					</form:select>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="rooms" class="col-xs-3 control-label">Rooms</label>
 				<div class="col-xs-5">
-					<select name="rooms" class="form-control" id="rooms" value="">
-						<optgroup label=""></optgroup>
-					</select>
+					<form:select class="form-control" id="roomNo" path="roomNo">
+						<form:option value="">--Select--</form:option>
+					</form:select>
 				</div>
 			</div>
 			<div class="form-group">
@@ -74,7 +76,7 @@
 					<button type="submit" class="btn btn-success">Assign</button>
 				</div>
 			</div>
-		</form>
+		</form:form>
 	</div>
 </body>
 </html>
