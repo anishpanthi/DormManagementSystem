@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,7 +38,7 @@ public class MaintenanceController {
 			RedirectAttributes redirectAttributes,BindingResult bindingResult,
 			Model model){
 		if(bindingResult.hasErrors()){
-			
+			return "maintenance/index";
 		}
 		redirectAttributes.addFlashAttribute("postMessage", "Thanks. Your maintenance request is saved successfuly");
 		maintenanceService.create(maintenance);
@@ -54,11 +55,20 @@ public class MaintenanceController {
 		return "maintenance/list";
 	}
 	
-	@RequestMapping(value=STAFF_PATH +"/{id}", method=RequestMethod.GET)
+	@RequestMapping(value=STAFF_PATH +"/edit/{id}", method=RequestMethod.GET)
 	public String viewMaintenanceRequest(@PathVariable("id") Integer id, Model model){
 		model.addAttribute("maintenance", maintenanceService.findOne(id));
 		
 		return "maintenance/update";
+	}
+	
+	@RequestMapping(value=STAFF_PATH +"/edit/{id}", method=RequestMethod.POST)
+	public String updateMaintenanceRequest(@PathVariable("id") Integer id, @ModelAttribute("maintenance") Maintenance maintenance , 
+			RedirectAttributes redirectAttributes,Model model){
+		
+		maintenanceService.update(maintenance, id);
+		redirectAttributes.addFlashAttribute("postMessage", "Thanks. Your maintenance request is saved successfuly");
+		return "maintenance/list";
 	}
 	
 }

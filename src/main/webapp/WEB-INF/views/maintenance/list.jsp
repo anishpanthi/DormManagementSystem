@@ -39,7 +39,7 @@
 						<td>207</td>
 						<td><a href='#'><span
 								class="glyphicon glyphicon-eye-open"></span></a> view | 
-								<a href="<c:url value='/auth/staff/maintenance/${maintenance.id}'></c:url>"><span
+								<a href="<c:url value='/auth/staff/maintenance/edit/${maintenance.id}'></c:url>"><span
 								class="glyphicon glyphicon-pencil"></span></a>update</td>
 					</tr>
 				</c:forEach>

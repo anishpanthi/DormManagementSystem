@@ -25,13 +25,14 @@
 			<h4 class="text-success">Register a Maintenance Request</h4>
 			<hr />
 			<form:form commandName="maintenance">
+			<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 				<div class="form-group">
 					<label for="title">Title</label>
-					<form:input path="title" class="form-control" id="title" />
+					<form:input path="title"   class="form-control" id="title" />
 				</div>
 				<div class="form-group">
 					<label for="description">Description</label>
-					<form:textarea path="description" class="form-control"
+					<form:textarea path="description"  class="form-control"
 						id="description" />
 				</div>
 				<button type="submit" class="btn btn-success">

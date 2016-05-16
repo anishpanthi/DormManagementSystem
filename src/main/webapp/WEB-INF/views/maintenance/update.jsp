@@ -25,41 +25,62 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Act on Maintenance Request</div>
 				<div class="panel-body">
-					<form:form commandName="maintenance">
-						<div class="form-group">
-							<label class="text-success">Name</label> <label>Bijay Khatri</label>
-						</div>
-						<div class="form-group">
-							<label for="title">Room No.:</label> <label>207</label>
-						</div>
-						<div class="form-group">
-							<label for="title">Title</label>
-							<form:label path="title">${maintenance.title}</form:label>
-						</div>
-						<div class="form-group">
-							<label for="description">Description</label>
-							<form:label path="title">${maintenance.description}</form:label>
-						</div>
-						<div class="form-group">
-							<label for="status">Status</label>
-							<form:label path="status">${maintenance.status}</form:label>
-						</div>
-						<div class="form-group">
-							<label for="status">New Status</label>
-							<select>
-								<option value="0">New</option>
-								<option value="0">On Progress</option>
-								<option value="0">Completed</option>
-							</select>
-						</div>
-						<button type="submit" class="btn btn-success">
-							<span class="glyphicon glyphicon-ok"></span> Update
-						</button>
-					</form:form>
+					
+						<table class="table table-striped">
+							<tr>
+								<td>Name</td>
+								<td>Bijay</td>
+							</tr>
+							<tr>
+								<td>Room No.:</td>
+								<td>207</td>
+							</tr>
+							<tr>
+								<td>Issue Title</td>
+								<td>${maintenance.title}</td>
+							</tr>
+					
+							<tr>
+								<td>Issue Description</td>
+								<td>${maintenance.description}</td>
+							</tr>
+				
+							<tr>
+								<td>Issue Title</td>
+								<td>${maintenance.title}</td>
+							</tr>
+							
+							<tr>
+							<td>Status</td>
+							<td><label style="font-size: 12px;
+									    color: #FDFDFD;
+									    background: #60A963;
+									    padding: 3px;
+									    text-transform: lowercase;">
+								${maintenance.status}</label></td>
+							</tr>
+							
+						</table>
+						
+			<form:form commandName="maintenance">
+				<div class="form-group">
+					<label for="status">Action</label> 
+					<form:select path="status">
+						<option value="0">New</option>
+						<option value="1">On Progress</option>
+						<option value="2">Completed</option>
+					</form:select>
+					
 				</div>
+				<button type="submit" class="btn btn-success">
+					<span class="glyphicon glyphicon-ok"></span> Update
+				</button>
+				
+				</form:form>
 			</div>
-
 		</div>
+
+	</div>
 	</div>
 
 

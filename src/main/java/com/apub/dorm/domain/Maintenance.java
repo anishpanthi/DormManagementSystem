@@ -10,32 +10,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  *
  * @author Anish Panthi
  */
 @Entity
-public class Maintenance{
+public class Maintenance {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
 	protected Integer id;
-	
-	@NotNull(message = "Title is Required")
+
+	@NotEmpty(message = "Title is Required")
 	protected String title;
-	
-	@NotNull(message = "Description is Required")
+
+	@NotEmpty(message = "Description is Required")
 	protected String description;
-	
-	@Column(name="registeredDate", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+
+	@Column(name = "registeredDate", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	protected Date registeredDate;
-	
+
 	protected MaintenanceStatus status;
-	
+
 	protected Date updatedDate;
-	
 
 	@JoinColumn(name = "student_id")
 	@ManyToOne
@@ -45,16 +46,13 @@ public class Maintenance{
 
 	}
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public String getTitle() {
 		return title;
@@ -64,7 +62,6 @@ public class Maintenance{
 		this.title = title;
 	}
 
-	
 	public String getDescription() {
 		return description;
 	}
@@ -73,11 +70,10 @@ public class Maintenance{
 		this.description = description;
 	}
 
-	
 	public Date getRegisteredDate() {
 		return registeredDate;
 	}
-	
+
 	public void setRegisteredDate(Date registeredDate) {
 		this.registeredDate = registeredDate;
 	}
