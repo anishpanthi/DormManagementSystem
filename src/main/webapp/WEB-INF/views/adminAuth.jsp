@@ -16,4 +16,7 @@
 </div>
 
 <p>
+	<a href='<c:url value="/auth/admin/api/roomassignment/assignform" />'>RoomAssignment</a><br />
+	<a href='<c:url value="/auth/admin/api/building/buildingform" />'>Building</a><br />
+	<a href="admin/api/room/roomform">Room</a>
 <h1>This is Admin Page.</h1>

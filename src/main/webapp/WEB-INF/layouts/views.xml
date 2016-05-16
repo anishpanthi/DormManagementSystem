@@ -36,4 +36,16 @@
 		<put-attribute name="body" value="/WEB-INF/views/staffAuth.jsp" />
 	</definition>
 	
+	<definition name="building/building" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/building/building.jsp" />
+	</definition>
+	
+	<definition name="room/room" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/room/room.jsp" />
+	</definition>
+	
+	<definition name="room/roomAssignment" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/room/roomAssignment.jsp" />
+	</definition>
+	
 </tiles-definitions>
