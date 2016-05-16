@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="container">
-		<form id="buildingInfo" class="form-horizontal" action="createform"
+		<form id="buildingInfo" class="form-horizontal" action="create"
 			method="post">
 			<div class="form-group">
 				<label for="buildingName" class="col-xs-3 control-label">Building Name</label>
