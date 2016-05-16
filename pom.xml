@@ -130,7 +130,13 @@
 			</exclusions>
 		</dependency>
 		<!-- end: bootstrap dependencies -->
-
+		<!-- start: tiles dependency patiram-->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>3.0.5</version>
+		</dependency>
+		<!-- end: tiles dependency -->
 		<!-- start: Spring Dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -185,6 +191,24 @@
 		</dependency>
 		<!-- end: Spring Dependencies -->
 
+		<!-- Added for Security patiram -->
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.2.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.2.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>3.2.3.RELEASE</version>
+		</dependency>
+		<!-- End of Added for Security -->
 
 		<!-- start: AspectJ dependencies -->
 		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-aspects</artifactId> 
