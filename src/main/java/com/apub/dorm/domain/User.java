@@ -5,11 +5,10 @@
  */
 package com.apub.dorm.domain;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -20,90 +19,90 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author Anish Panthi
  */
 @Entity
-public class User implements Serializable {
+public class User extends APerson {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(generator = "User_SequenceStyleGenerator")
-    @GenericGenerator(name = "User_SequenceStyleGenerator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-    parameters = {
-    @Parameter(name = "sequence_name", value = "User_SEQ"),
-    @Parameter(name = "optimizer", value = "hilo"),
-    @Parameter(name = "initial_value", value = "1"),
-    @Parameter(name = "increment_size", value = "1") }
-    )		
-    private int id;
-    
-    @NotEmpty(message = "Password cannot be empty.")
-    private String password;
-    
-    private String userrole;
-    
-    @NotEmpty(message = "Username cannot be empty.")
-    private String username;
-    
-    public User() {
-    }
+	private static final long serialVersionUID = 1L;
 
-    public User(Integer id) {
-        this.id = id;
-    }
+	public User() {
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	@Id
+	@GeneratedValue(generator = "User_SequenceStyleGenerator")
+	@GenericGenerator(name = "User_SequenceStyleGenerator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+			@Parameter(name = "sequence_name", value = "User_SEQ"), @Parameter(name = "optimizer", value = "hilo"),
+			@Parameter(name = "initial_value", value = "1"), @Parameter(name = "increment_size", value = "1") })
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	@NotEmpty(message = "Password cannot be empty.")
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getUserrole() {
-        return userrole;
-    }
+	@NotEmpty(message = "User Role cannot be empty.")
+	public String getUserRole() {
+		return userRole;
+	}
 
-    public void setUserrole(String userrole) {
-        this.userrole = userrole;
-    }
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	@NotEmpty(message = "Username cannot be empty.")
+	public String getUsername() {
+		return username;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 0;
-//        hash += (id != null ? id.hashCode() : 0);
-//        return hash;
-//    }
-//
-//    @Override
-//    public boolean equals(Object object) {
-//        // TODO: Warning - this method won't work in the case the id fields are not set
-//        if (!(object instanceof User)) {
-//            return false;
-//        }
-//        User other = (User) object;
-//        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-//            return false;
-//        }
-//        return true;
-//    }
+	@NotEmpty(message = "First Name cannot be empty.")
+	public String getFirstName() {
+		return firstName;
+	}
 
-	@Override
-    public String toString() {
-        return "com.apub.dorm.domain.User[ id=" + id + " ]";
-    }
-    
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	@NotEmpty(message = "First Name cannot be empty.")
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	@Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", message = "Invalid Email Address.")
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String toString() {
+		return "com.apub.dorm.domain.User[ id=" + id + " ]";
+	}
 }

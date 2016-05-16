@@ -7,12 +7,12 @@
 		<form action="feedback" method="post">
 			<table align="center">
 				<tr>
-					<spring:bind path="feedback.firstname">
-						<td><label for="firstname">&nbsp;&nbsp;First
+					<spring:bind path="feedback.firstName">
+						<td><label for="firstName">&nbsp;&nbsp;First
 								Name:&nbsp;&nbsp;</label></td>
-						<td><form:input path="feedback.firstname"
-								class="form-control" id="firstname" /></td>
-						<td><form:errors path="feedback.firstname"
+						<td><form:input path="feedback.firstName"
+								class="form-control" id="firstName" /></td>
+						<td><form:errors path="feedback.firstName"
 								cssStyle="color: #ff0000;" class="alert alert-danger" /></td>
 					</spring:bind>
 				</tr>
@@ -20,12 +20,12 @@
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<spring:bind path="feedback.lastname">
-						<td><label for="lastname">&nbsp;&nbsp;Last
+					<spring:bind path="feedback.lastName">
+						<td><label for="lastName">&nbsp;&nbsp;Last
 								Name:&nbsp;&nbsp;</label></td>
-						<td><form:input path="feedback.lastname" class="form-control"
-								id="lastname" /></td>
-						<td><form:errors path="feedback.lastname"
+						<td><form:input path="feedback.lastName" class="form-control"
+								id="lastName" /></td>
+						<td><form:errors path="feedback.lastName"
 								cssStyle="color: #ff0000;" class="alert alert-danger" /></td>
 					</spring:bind>
 				</tr>
