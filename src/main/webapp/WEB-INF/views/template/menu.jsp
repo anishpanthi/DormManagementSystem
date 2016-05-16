@@ -46,7 +46,7 @@
 				</c:if> <c:if test="${pageContext.request.userPrincipal.name == null}">
 					<p class=" text-info">
 						<a href="${pageContext.request.contextPath}/login"><span
-							class="glyphicon glyphicon-log-in"></span>Login</a>
+							class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Login</a>
 					</p>
 				</c:if></li>
 		</ul>

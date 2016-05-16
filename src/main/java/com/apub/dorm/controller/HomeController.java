@@ -146,6 +146,12 @@ public class HomeController {
 		return "studentAuth";
 	}
 	
+	@RequestMapping(value="/auth/admin/feedback", method = RequestMethod.GET)
+	public String feedbackForm(Model model){
+		model.addAttribute("feedback", new Feedback());
+		return "feedback";
+	}
+	
 	@RequestMapping(value = "/400", method = RequestMethod.GET)
 	public String get400ErrorPage() {
 		return "errorPage";

@@ -4,25 +4,36 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-	<!-- <definition name="home" extends="DefaultTemplate"> <put-attribute name="body" 
-		value="/WEB-INF/views/home.jsp" /> </definition> -->
 	<definition name="home" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
 	</definition>
+	
 	<definition name="errorPage" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/errorPage.jsp" />
 	</definition>
+	
 	<definition name="login" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 	</definition>
+	
 	<definition name="feedback" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/feedback.jsp" />
 	</definition>
+	
 	<definition name="listFeedbacks" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/listFeedbacks.jsp" />
 	</definition>
+	
 	<definition name="studentAuth" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/studentAuth.jsp" />
+	</definition>
+	
+	<definition name="adminAuth" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/adminAuth.jsp" />
+	</definition>
+	
+	<definition name="staffAuth" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/staffAuth.jsp" />
 	</definition>
 	
 </tiles-definitions>

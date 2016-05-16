@@ -8,9 +8,9 @@
 
 	<http auto-config="true">
 		<access-denied-handler error-page="/403" />
-		<intercept-url pattern="/auth/admin**" access="ROLE_ADMIN" />
-		<intercept-url pattern="/auth/staff**" access="ROLE_STAFF" />
-		<intercept-url pattern="/auth/student**" access="ROLE_STUDENT" />
+		<intercept-url pattern="/auth/admin/**" access="ROLE_ADMIN" />
+		<intercept-url pattern="/auth/staff/**" access="ROLE_STAFF" />
+		<intercept-url pattern="/auth/student/**" access="ROLE_STUDENT" />
 		<form-login login-processing-url="/j_spring_security_check"
 			login-page="/login" authentication-success-handler-ref="authSuccessHandler"
 			authentication-failure-url="/login?authFailed" username-parameter="username"
