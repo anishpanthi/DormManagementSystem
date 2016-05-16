@@ -35,8 +35,8 @@
 						id="description" />
 				</div>
 				<button type="submit" class="btn btn-success">
-				<span class="glyphicon glyphicon-eye-open"></span>
-				Register</button>
+				<span class="glyphicon glyphicon-plus"></span>
+				Save</button>
 			</form:form>
 		</div>
 	</div>

@@ -1,8 +1,11 @@
 package com.apub.dorm.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,7 +33,12 @@ public class MaintenanceController {
 	}
 	
 	@RequestMapping(value=STUDENT_PATH,method=RequestMethod.POST)
-	public String registerMaintenance(Maintenance maintenance, Model model, RedirectAttributes redirectAttributes){
+	public String registerMaintenance(@Valid Maintenance maintenance, 
+			RedirectAttributes redirectAttributes,BindingResult bindingResult,
+			Model model){
+		if(bindingResult.hasErrors()){
+			
+		}
 		redirectAttributes.addFlashAttribute("postMessage", "Thanks. Your maintenance request is saved successfuly");
 		maintenanceService.create(maintenance);
 		return "redirect:/"+STUDENT_PATH; //PRG Pattern

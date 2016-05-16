@@ -15,27 +15,47 @@ import javax.validation.constraints.NotNull;
  * @author Anish Panthi
  */
 @Entity
-public class Maintenance extends AMaintenance {
+public class Maintenance{
 
 	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	protected Integer id;
+	
+	@NotNull(message = "Title is Required")
+	protected String title;
+	
+	@NotNull(message = "Description is Required")
+	protected String description;
+	
+	@Column(name="registeredDate", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	protected Date registeredDate;
+	
+	protected MaintenanceStatus status;
+	
+	protected Date updatedDate;
+	
+
+	@JoinColumn(name = "student_id")
+	@ManyToOne
+	protected Student student;
 
 	public Maintenance() {
 
 	}
 
-	@Override
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	@Id
-	@GeneratedValue
-	@Override
+
 	public Integer getId() {
 		return id;
 	}
 
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -44,7 +64,7 @@ public class Maintenance extends AMaintenance {
 		this.title = title;
 	}
 
-	@NotNull(message = "Description is Required")
+	
 	public String getDescription() {
 		return description;
 	}
@@ -53,8 +73,7 @@ public class Maintenance extends AMaintenance {
 		this.description = description;
 	}
 
-//	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="registeredDate", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	
 	public Date getRegisteredDate() {
 		return registeredDate;
 	}
@@ -79,8 +98,6 @@ public class Maintenance extends AMaintenance {
 		this.updatedDate = updatedDate;
 	}
 
-	@JoinColumn(name = "student_id")
-	@ManyToOne
 	public Student getStudent() {
 		return student;
 	}
