@@ -18,7 +18,8 @@
 		</div>
 		<ul class="nav nav-pills nav-tabs navbar-nav">
 			<li><a href="${pageContext.request.contextPath}/">Home</a></li>
-			<li><a href="#">Menu</a></li>
+			<li><a href="<c:url value='student/maintenance'/>">Maintenance</a></li>
+			
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">List1<span class="caret"></span></a>
 				<ul class="dropdown-menu nav nav-pills">
