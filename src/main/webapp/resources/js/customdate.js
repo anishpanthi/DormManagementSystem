@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$(".datepicker").pickadate();
+//	$(".datepicker").pickadate();
 })
 
 function confirmDelete(delForm, delUrl) {

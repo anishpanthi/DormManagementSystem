@@ -2,16 +2,22 @@ package com.apub.dorm.domain;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class RoomAssignment {
 	private Integer id;
 	private Integer studentId;
 	private String email;
-	private Date date;
+	private String entryDate;
 	private Integer buildingNo;
 	private Integer roomNo;
+	
+	public RoomAssignment() {
+		
+	}
 
 	@Id
 	@GeneratedValue
@@ -39,14 +45,6 @@ public class RoomAssignment {
 		this.email = email;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	public Integer getBuildingNo() {
 		return buildingNo;
 	}
@@ -62,5 +60,20 @@ public class RoomAssignment {
 	public void setRoomNo(Integer roomNo) {
 		this.roomNo = roomNo;
 	}
+
+	public String getEntryDate() {
+		return entryDate;
+	}
+
+	public void setEntryDate(String entryDate) {
+		this.entryDate = entryDate;
+	}
+
+	@Override
+	public String toString() {
+		return "RoomAssignment [id=" + id + ", studentId=" + studentId + ", email=" + email + ", date=" + entryDate
+				+ ", buildingNo=" + buildingNo + ", roomNo=" + roomNo + "]";
+	}
+	
 
 }

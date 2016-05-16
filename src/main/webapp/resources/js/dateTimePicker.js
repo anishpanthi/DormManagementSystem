@@ -6,5 +6,7 @@ $(document).ready(function() {
 	$('#datePicker').datepicker({
 		format : 'mm/dd/yyyy'
 	}).on('changeDate', function(e) {
+		alert($('#entryDate').val());
+
 	});
 });

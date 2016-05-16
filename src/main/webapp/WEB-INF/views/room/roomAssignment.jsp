@@ -26,8 +26,7 @@
 </head>
 <body>
 	<div class="container">
-		<form:form id="assignmentForm" class="form-horizontal"
-			action="room/assign" method="post" modelAttribute="RoomAssignment">
+		<form:form id="assignmentForm" class="form-horizontal" action="roomassignment/assign" method="POST" modelAttribute="roomAssignment">
 			<div class="form-group">
 				<label for="studentId" class="col-xs-3 control-label">StudentId</label>
 				<div class="col-xs-5">
@@ -46,7 +45,7 @@
 				<label class="col-xs-3 control-label">Date</label>
 				<div class="col-xs-5 date">
 					<div class="input-group input-append date" id="datePicker">
-						<form:input type="text" class="form-control" path="date" />
+						<form:input type="text" class="form-control" name="entryDate" id="entryDate" path="entryDate" />
 						<span class="input-group-addon add-on"><span
 							class="glyphicon glyphicon-calendar"></span></span>
 					</div>
