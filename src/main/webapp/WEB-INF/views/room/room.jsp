@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-		<form id="room" class="form-horizontal" action="create" method="POST">
+		<form id="room" class="form-horizontal" action="room/create" method="POST">
 			<div class="form-group">
 				<label for="buildingNo" class="col-xs-3 control-label">Building
 					No</label>
@@ -40,7 +40,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-xs-5 col-xs-offset-3">
-					<button type="submit" class="btn btn-default">Create</button>
+					<button type="submit" class="btn btn-success">Create</button>
 				</div>
 			</div>
 		</form>

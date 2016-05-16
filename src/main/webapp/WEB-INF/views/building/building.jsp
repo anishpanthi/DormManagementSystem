@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="container">
-		<form id="buildingInfo" class="form-horizontal" action="create"
+		<form id="buildingInfo" class="form-horizontal" action="building/create"
 			method="post">
 			<div class="form-group">
 				<label for="buildingName" class="col-xs-3 control-label">Building Name</label>
@@ -35,7 +35,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-xs-5 col-xs-offset-3">
-					<button type="submit" class="btn btn-default">Create</button>
+					<button type="submit" class="btn btn-success">Create</button>
 				</div>
 			</div>
 		</form>

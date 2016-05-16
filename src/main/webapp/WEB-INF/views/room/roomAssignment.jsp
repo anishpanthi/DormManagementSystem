@@ -24,7 +24,7 @@
 </head>
 <body>
 	<div class="container">
-		<form id="assignmentForm" class="form-horizontal" action="assign"
+		<form id="assignmentForm" class="form-horizontal" action="room/assign"
 			method="post">
 			<div class="form-group">
 				<label for="studentId" class="col-xs-3 control-label">StudentId</label>
@@ -71,7 +71,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-xs-5 col-xs-offset-3">
-					<button type="submit" class="btn btn-default">Assign</button>
+					<button type="submit" class="btn btn-success">Assign</button>
 				</div>
 			</div>
 		</form>
