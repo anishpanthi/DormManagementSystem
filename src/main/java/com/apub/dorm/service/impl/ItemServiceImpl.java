@@ -34,4 +34,15 @@ public class ItemServiceImpl implements ItemService{
 	public Item findOne(Integer id) {
 		return itemRepository.findOne(id);
 	}
+
+	@Override
+	public void delete(Item item) {
+		itemRepository.delete(item);
+	}
+	
+	@Override 
+	public void update(Item item, int id){
+		item.setId(id);
+		itemRepository.save(item);
+	}
 }

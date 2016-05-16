@@ -8,13 +8,13 @@ public interface ItemService {
 
 	public void create(Item item);
 
-//	public void delete(int id);
+	public void delete(Item item);
 
 	public List<Item> findAll();
 	
 	public Item findOne(Integer id);
 
-//	public void update(Item item);
+	public void update(Item item, int id);
 
 //	public Item findById(int id);
 
