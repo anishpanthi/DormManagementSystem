@@ -1,7 +1,7 @@
 body, html {
 	height: 100%;
 	background-repeat: no-repeat;
-	background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+	background-image: linear-gradient(rgb(200, 220, 220), rgb(220, 220, 200));
 }
 
 .card-container.card {
