@@ -36,6 +36,13 @@ public class MaintenanceServiceImpl implements MaintenanceService{
 	public Maintenance findOne(Integer id) {
 		return maintenanceRepository.findOne(id);
 	}
+
+	@Override
+	public void update(Maintenance maintenance, int id) {
+		maintenance.setId(id);
+		 maintenanceRepository.save(maintenance);
+		
+	}
 	
 	
 }

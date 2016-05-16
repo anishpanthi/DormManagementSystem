@@ -15,6 +15,8 @@ public interface MaintenanceService {
 	
 	public Maintenance findOne(Integer id);
 
+	public void update(Maintenance maintenance, int id);
+
 //	public void update(Feedback feedback);
 
 //	public Feedback findById(int id);
