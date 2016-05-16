@@ -8,8 +8,4 @@ public abstract class AForm implements Serializable {
 
 	protected Integer id;
 
-	public abstract void setId(Integer id);
-
-	public abstract Integer getId();
-
 }

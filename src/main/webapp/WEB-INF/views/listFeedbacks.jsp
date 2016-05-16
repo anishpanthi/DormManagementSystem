@@ -23,8 +23,8 @@
 			<th>Comment</th>
 			<c:forEach var="feedback" items="${feedbacks}">
 				<tr>
-					<td>${feedback.firstname}</td>
-					<td>${feedback.lastname}</td>
+					<td>${feedback.firstName}</td>
+					<td>${feedback.lastName}</td>
 					<td>${feedback.comments}</td>
 				</tr>
 			</c:forEach>

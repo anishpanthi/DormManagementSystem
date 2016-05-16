@@ -13,14 +13,12 @@ public class Building extends ABuilding {
 		
 	}
 	
-	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	@Id
 	@GeneratedValue
-	@Override
 	public Integer getId() {
 		return id;
 	}

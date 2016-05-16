@@ -16,90 +16,75 @@ public class Staff extends APerson {
 		
 	}
 	
-	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	@Id
 	@GeneratedValue
-	@Override
 	public Integer getId() {
 		return id;
 	}
 
-	@Override
+	@NotEmpty(message = "First Name cannot be empty.")
 	public String getFirstName() {
 		return firstName;
 	}
 
-	@NotEmpty(message = "First Name cannot be empty.")
-	@Override
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	@Override
 	public String getMiddleName() {
 		return middleName;
 	}
 
-	@Override
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
 
-	@Override
+	@NotEmpty(message = "Last Name cannot be empty.")
 	public String getLastName() {
 		return lastName;
 	}
 
-	@NotEmpty(message = "Last Name cannot be empty.")
-	@Override
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-	@Override
+	@NotEmpty(message = "Username cannot be empty.")
 	public String getUsername() {
 		return username;
 	}
 
-	@NotEmpty(message = "Username cannot be empty.")
-	@Override
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	@Override
+	
 	public String getPassword() {
 		return password;
 	}
 
-	@NotEmpty(message = "Password cannot be empty.")
-	@Override
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	@Override
+	@Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", message = "Invalid Email Address.")
 	public String getEmail() {
 		return email;
 	}
 
-	@Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", message = "Invalid Email Address. Email will not apper in anywhere.")
-	@Override
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	@Override
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
 
-	@Override
+	@NotEmpty(message = "User Role cannot be empty.")
 	public String getUserRole() {
 		return userRole;
 	}

@@ -9,12 +9,5 @@ public abstract class AItem implements Serializable {
 	protected String name;
 	protected String description;
 	
-	public abstract Integer getId();
-	public abstract void setId(Integer id);
-	public abstract String getName();
-	public abstract void setName(String name);
-	public abstract String getDescription();
-	public abstract void setDescription(String description);
-	
 }
 	

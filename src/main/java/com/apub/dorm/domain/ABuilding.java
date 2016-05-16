@@ -8,8 +8,4 @@ public abstract class ABuilding implements Serializable {
 
 	protected Integer id;
 
-	public abstract void setId(Integer id);
-
-	public abstract Integer getId();
-
 }
