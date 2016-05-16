@@ -1,24 +1,35 @@
 package com.apub.dorm.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
-*
-* @author Anish Panthi
-*/
+ *
+ * @author Anish Panthi
+ */
 @Entity
-public class Item extends AItem {
+public class Item implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	public Item(){
-		
-	}
-	
 	@Id
 	@GeneratedValue
+	protected Integer id;
+	
+	protected String name;
+	protected String description;
+	
+	@Column( nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
+	protected boolean available;
+
+	public Item() {
+
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -41,5 +52,13 @@ public class Item extends AItem {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

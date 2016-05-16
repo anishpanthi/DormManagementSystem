@@ -26,15 +26,6 @@ public class HomeController {
 
 	@Autowired
 	private FeedbackService feedbackService;
-	//
-	// @Autowired
-	// private DoctorService doctorService;
-	//
-	// @Autowired
-	// private OwnerService ownerService;
-	//
-	// @Autowired
-	// private AdminService adminService;
 
 	HttpSession session = null;
 
@@ -43,22 +34,7 @@ public class HomeController {
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
-		//
-		// Admin adminExists = adminService.findByUsername("admin");
-		// if (adminExists == null) {
-		// com.amt.petclinic.domain.User user = new
-		// com.amt.petclinic.domain.User();
-		// user.setUsername("admin");
-		// user.setPassword("admin");
-		// user.setUserrole("ROLE_ADMIN");
-		//
-		// Admin admin = new Admin("admin@gmail.com", "Pramila", "Bhandari",
-		// user.getUsername(), "9851177720",
-		// "Bhairahawa", "10", "Region-5", "234", "32600", user);
-		// admin.setUser(user);
-		// adminService.create(admin);
-		// }
-		//
+
 		ModelAndView model = new ModelAndView();
 		model.addObject("serverTime", formattedDate);
 		model.setViewName("home");

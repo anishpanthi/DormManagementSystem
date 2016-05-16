@@ -60,4 +60,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/maintenance/update.jsp" />
 	</definition>
 	
+	<definition name="item/index" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/item/index.jsp" />
+	</definition>
+	
 </tiles-definitions>
