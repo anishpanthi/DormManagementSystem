@@ -48,4 +48,16 @@
 		<put-attribute name="body" value="/WEB-INF/views/room/roomAssignment.jsp" />
 	</definition>
 	
+	<definition name="maintenance/index" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/maintenance/index.jsp" />
+	</definition>
+	
+	<definition name="maintenance/list" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/maintenance/list.jsp" />
+	</definition>
+	
+	<definition name="maintenance/update" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/maintenance/update.jsp" />
+	</definition>
+	
 </tiles-definitions>
