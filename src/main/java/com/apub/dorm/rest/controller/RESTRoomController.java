@@ -20,7 +20,6 @@ public class RESTRoomController {
 
 	@RequestMapping(value = "/rooms", method = RequestMethod.GET)
 	public @ResponseBody List<Room> roomsForBuilding(@RequestParam(value = "buildingNo", required = true) int buildingNo) {
-		System.err.println(roomService.findRoomNumbersByBuildingNo(buildingNo));
 		return roomService.findRoomNumbersByBuildingNo(buildingNo);
 	}
 }
