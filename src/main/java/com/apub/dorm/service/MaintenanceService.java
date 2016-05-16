@@ -4,12 +4,13 @@ import java.util.List;
 
 import com.apub.dorm.domain.Feedback;
 import com.apub.dorm.domain.Maintenance;
+import com.apub.dorm.domain.Student;
 
 public interface MaintenanceService {
 
 	public void create(Maintenance maintenance);
 
-//	public void delete(int id);
+	public void delete(int id);
 
 	public List<Maintenance> findAll();
 	
@@ -17,8 +18,5 @@ public interface MaintenanceService {
 
 	public void update(Maintenance maintenance, int id);
 
-//	public void update(Feedback feedback);
-
-//	public Feedback findById(int id);
-
+	
 }

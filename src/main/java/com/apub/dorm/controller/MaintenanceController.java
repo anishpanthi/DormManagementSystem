@@ -1,5 +1,7 @@
 package com.apub.dorm.controller;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.apub.dorm.domain.Maintenance;
+import com.apub.dorm.domain.Student;
 import com.apub.dorm.service.MaintenanceService;
+import com.apub.dorm.service.StudentService;
 
 @Controller
 //@RequestMapping("")
@@ -27,9 +31,13 @@ public class MaintenanceController {
 	@Autowired
 	private MaintenanceService maintenanceService;
 	
+	@Autowired
+	private StudentService studentService;
+	
 	@RequestMapping(value=STUDENT_PATH,method=RequestMethod.GET)
-	public String index(Model model){
+	public String index(Model model, Principal principal){
 		model.addAttribute("maintenance", new Maintenance());
+		model.addAttribute("student",studentService.findByUsername(principal.getName()));
 		return   "maintenance/index";
 	}
 	
@@ -42,7 +50,7 @@ public class MaintenanceController {
 		}
 		redirectAttributes.addFlashAttribute("postMessage", "Thanks. Your maintenance request is saved successfuly");
 		maintenanceService.create(maintenance);
-		return "redirect:/"+STUDENT_PATH; //PRG Pattern
+		return "redirect:/auth/student"; //PRG Pattern
 	}
 	
 	/**
@@ -70,5 +78,7 @@ public class MaintenanceController {
 		redirectAttributes.addFlashAttribute("postMessage", "Thanks. Your maintenance request is saved successfuly");
 		return "maintenance/list";
 	}
+	
+	
 	
 }

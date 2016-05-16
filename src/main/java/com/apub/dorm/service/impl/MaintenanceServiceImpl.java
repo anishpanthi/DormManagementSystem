@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import com.apub.dorm.domain.MaintenanceStatus;
+import com.apub.dorm.domain.Student;
 import com.apub.dorm.domain.Maintenance;
 import com.apub.dorm.repository.MaintenanceRepository;
 import com.apub.dorm.service.MaintenanceService;
@@ -43,6 +44,14 @@ public class MaintenanceServiceImpl implements MaintenanceService{
 		 maintenanceRepository.save(maintenance);
 		
 	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 	
 	
 }
