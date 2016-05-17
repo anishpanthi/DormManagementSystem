@@ -18,6 +18,14 @@
 </head>
 <body>
 	<div class="container">
+	<c:if test="${!empty successMessage}">
+			<div class="row">
+				<div class="alert alert-success">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>${successMessage}</strong>
+				</div>
+			</div>
+		</c:if>
 		<form id="room" class="form-horizontal" action="room/create" method="POST">
 			<div class="form-group">
 				<label for="buildingNo" class="col-xs-3 control-label">Building

@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,6 +18,14 @@
 </head>
 <body>
 	<div class="container">
+		<c:if test="${!empty successMessage}">
+			<div class="row">
+				<div class="alert alert-success">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>${successMessage}</strong>
+				</div>
+			</div>
+		</c:if>
 		<form id="buildingInfo" class="form-horizontal"
 			action="building/create" method="post">
 			<div class="form-group">

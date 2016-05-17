@@ -26,6 +26,14 @@
 </head>
 <body>
 	<div class="container">
+	<c:if test="${!empty successMessage}">
+			<div class="row">
+				<div class="alert alert-success">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>${successMessage}</strong>
+				</div>
+			</div>
+		</c:if>
 		<form:form id="assignmentForm" class="form-horizontal" action="roomassignment/assign" method="POST" modelAttribute="roomAssignment">
 			<div class="form-group">
 				<label for="studentId" class="col-xs-3 control-label">StudentId</label>

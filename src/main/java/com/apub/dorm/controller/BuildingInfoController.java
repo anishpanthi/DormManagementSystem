@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.apub.dorm.domain.Building;
 import com.apub.dorm.service.BuildingService;
@@ -24,9 +25,9 @@ public class BuildingInfoController {
 	}
 	
 	@RequestMapping(value="/create", method = RequestMethod.POST)
-	public String createForm(@ModelAttribute Building building, Model model){
+	public String createForm(@ModelAttribute Building building, RedirectAttributes redirectAttributes, Model model){
 		buildingService.create(building);
-		model.addAttribute("success", "Building Created Successfully");
-		return "building/building";
+		redirectAttributes.addFlashAttribute("successMessage", "Building Created Successfully");
+		return "redirect:/auth/admin/building";
 	}
 }

@@ -7,6 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.apub.dorm.domain.RoomAssignment;
 import com.apub.dorm.service.BuildingService;
@@ -28,9 +30,10 @@ public class RoomAssignmentController {
 	}
 
 	@RequestMapping(value = "/assign", method = RequestMethod.POST)
-	public String assignForm(@ModelAttribute("roomAssignment") RoomAssignment roomAssignment, BindingResult result, Model model) {
-		System.out.println(roomAssignment);
+	public String assignForm(@ModelAttribute("roomAssignment") RoomAssignment roomAssignment, BindingResult result,
+			RedirectAttributes redirectAttributes, Model model) {
+		redirectAttributes.addFlashAttribute("successMessage", "Room is Successfully assigned");
 		roomAssignmentService.create(roomAssignment);
-		return "room/roomAssignment";
+		return "redirect:/auth/admin/roomassignment";
 	}
 }

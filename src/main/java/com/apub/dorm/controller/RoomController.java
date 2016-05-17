@@ -31,7 +31,7 @@ public class RoomController {
 	@RequestMapping(value="/create", method = RequestMethod.POST)
 	public String createRoom(@ModelAttribute Room room, RedirectAttributes flashAttributes){
 		roomService.create(room);
-		flashAttributes.addAttribute("success", "Room Created Successfully");
-		return "room/room";
+		flashAttributes.addFlashAttribute("successMessage", "Room successfully created");
+		return "redirect:/auth/admin/room";
 	}
 }
