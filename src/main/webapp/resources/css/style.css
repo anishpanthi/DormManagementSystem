@@ -1,3 +1,47 @@
 .bread {
 padding:0 10px;
 }
+
+/****FOR Maintenance Page*****/
+.maintenance-row{
+	    background: #F9F9F9;
+    padding: 10px;
+    color: #737373;
+    margin-top: 1%;
+    width: 100%;
+}
+
+.maintenance-row > h3{
+	color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 1%;
+}
+
+.maintenance-row #description{
+	    padding: 10px;
+    color: #333;
+    background: #fff;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.maintenance-row #title{
+	font-size: 20px;
+    padding: 10px;
+    font-weight: 500;
+    color: #009688;
+}
+
+.maintenance-row #title > label {
+	    font-weight: 100;
+    color: #A2A2A2;
+    font-size: 0.7em;
+}
+
+
+.maintenance-row select{
+	height: 40px;
+    /* width: 80%; */
+    padding: 5px;
+    border-radius: 5px;
+}
