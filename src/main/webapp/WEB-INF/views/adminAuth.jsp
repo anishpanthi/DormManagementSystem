@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@page session="true"%>
 <div class="container">
 	<c:url value="/j_spring_security_logout" var="logoutUrl" />
@@ -14,10 +13,28 @@
 		}
 	</script>
 </div>
+<br />
+<br />
 
-<p>
-	<a href="admin/roomassignment">RoomAssignment</a><br /> 
-	<a href="admin/building">Building</a><br /> 
-	<a href="admin/room">Room</a>
-	<a href="admin/student">Student</a>
-<h1>This is Admin Page.</h1>
+<div>
+	<p>
+		<a href="admin/roomassignment" class="btn btn-primary">RoomAssignment</a>
+	</p>
+	<p>
+		<a href="admin/building" class="btn btn-primary">Building</a>
+	</p>
+	<p>
+		<a href="admin/room" class="btn btn-primary">Room</a>
+	</p>
+	<p>
+		<a href="admin/item" class="btn btn-primary">Add Items</a>
+	</p>
+	<p>
+		<a href="admin/item/listItems" class="btn btn-primary">List Items</a>
+	</p>
+	<p>
+		<a href="admin/form/checkinForm" class="btn btn-primary">CheckIn Form</a>
+	</p>
+</div>
+
+

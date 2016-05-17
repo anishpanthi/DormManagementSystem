@@ -1,54 +1,37 @@
 package com.apub.dorm.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
-
-
-
-
-/**
- *
- * @author Anish Panthi
- */
 @Entity
-public class Item implements Serializable {
-
+public class CheckInForm implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
-	protected Integer id;
-	protected String itemName;
-	protected String description;
-
-	
-	@ManyToMany(mappedBy="items")
-	private List<Room> rooms;
+	private Integer id;
+	private String itemName;
+	private String description;
 
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
-	protected boolean available;
+	private boolean available;
+	private String status;
 
-	public Item() {
+	public CheckInForm() {
 
-	}
-
-	public Integer getId() {
-		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getId() {
+		return id;
 	}
 
 	public String getItemName() {
@@ -75,12 +58,11 @@ public class Item implements Serializable {
 		this.available = available;
 	}
 
-	public List<Room> getRooms() {
-		return rooms;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setRooms(List<Room> rooms) {
-		this.rooms = rooms;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	
 }
