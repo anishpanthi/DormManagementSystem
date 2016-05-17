@@ -1,21 +1,36 @@
 package com.apub.dorm.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.apub.dorm.domain.Building;
+import com.apub.dorm.domain.Item;
+import com.apub.dorm.domain.Room;
 import com.apub.dorm.repository.BuildingRepository;
+import com.apub.dorm.repository.RoomRepository;
 import com.apub.dorm.service.BuildingService;
 
 @Service
 public class BuildingServiceImpl implements BuildingService {
 	@Autowired
 	private BuildingRepository buildingRepository;
+	@Autowired
+	private RoomRepository roomRepository;
 
 	@Override
 	public void create(Building building) {
+		List<Room> roomList = new ArrayList<>();
+		Room aRoom = null;
+		for (int id : building.getRoomIds()) {
+			aRoom = roomRepository.findById(id);
+			aRoom.setBuilding(building);
+			roomList.add(aRoom);
+		}
+
+		building.setRooms(roomList);
 		buildingRepository.save(building);
 	}
 

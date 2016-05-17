@@ -6,12 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.transaction.annotation.Transactional;
 
 @Entity
+@Transactional
 public class Building {
 	@Id
 	@GeneratedValue
@@ -21,8 +24,12 @@ public class Building {
 	private String buildingType;
 	private int buildingNo;
 
-	@OneToMany(mappedBy = "building")
+	@OneToMany(cascade=javax.persistence.CascadeType.PERSIST, mappedBy = "building")
 	private List<Room> rooms;
+	
+
+	@Transient
+	private List<Integer> roomIds;
 
 	public Building() {
 
@@ -77,5 +84,21 @@ public class Building {
 	public void setBuildingName(String buildingName) {
 		this.buildingName = buildingName;
 	}
+
+	public List<Integer> getRoomIds() {
+		return roomIds;
+	}
+
+	public void setRoomIds(List<Integer> roomIds) {
+		this.roomIds = roomIds;
+	}
+
+	@Override
+	public String toString() {
+		return "Building [id=" + id + ", buildingName=" + buildingName + ", buildingAddress=" + buildingAddress
+				+ ", buildingType=" + buildingType + ", buildingNo=" + buildingNo + ", rooms=" + rooms + ", roomIds="
+				+ roomIds + "]";
+	}	
+	
 
 }
