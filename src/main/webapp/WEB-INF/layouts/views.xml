@@ -49,15 +49,15 @@
 	</definition>
 	
 	<definition name="maintenance/index" extends="DefaultTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/maintenance/index.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/maintenance/admin/index.jsp" />
 	</definition>
 	
 	<definition name="maintenance/list" extends="DefaultTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/maintenance/list.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/maintenance/admin/list.jsp" />
 	</definition>
 	
 	<definition name="maintenance/update" extends="DefaultTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/maintenance/update.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/maintenance/admin/update.jsp" />
 	</definition>
 	
 	<definition name="item/index" extends="DefaultTemplate">
