@@ -28,8 +28,6 @@
 	<bean id="authSuccessHandler" class="com.apub.dorm.authhandler.AuthSuccessHandler" />
 	<bean id="traceAdvice" class="com.apub.dorm.aop.TraceAdvice"/>
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
-
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:messages" />
@@ -72,6 +70,29 @@
 		<property name="packagesToScan" value="com.apub.dorm.domain" />
 	</bean>
 
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<aop:aspectj-autoproxy/>
+
+	<aop:config proxy-target-class="true">
+		<aop:advisor pointcut="execution(* com.apub.dorm.service.impl..*Impl.*(..))"
+					 advice-ref="txAdvice"/>
+<!-- 		<aop:advisor pointcut="execution(* com.lc.core.dao.*Dao.*(..))" advice-ref="txAdvice"/> -->
+	</aop:config>
+
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="list*" read-only="true"/>
+			<tx:method name="executeQuery" read-only="true"/>
+
+			<tx:method name="*" rollback-for="com.apub.dorm.exception.AppException"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${db.driver}"></property>

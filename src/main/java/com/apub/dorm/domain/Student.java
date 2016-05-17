@@ -1,33 +1,50 @@
 package com.apub.dorm.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
-*
-* @author Anish Panthi
-*/
+ *
+ * @author Anish Panthi
+ */
 @Entity
-public class Student extends APerson {
+public class Student {
+	@Id
+	@GeneratedValue
+	private Integer id;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String username;
+	private String password;
+	private String email;
+	private String phone;
+	private String country;
+	private String major;
+	private String userRole;
+	private String entryDate;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn
+	private Room room;
 
-	private static final long serialVersionUID = 1L;
-	
-	public Student(){
-		
+	public Student() {
+
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	@Id
-	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}
@@ -63,7 +80,6 @@ public class Student extends APerson {
 		return username;
 	}
 
-	
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -83,6 +99,30 @@ public class Student extends APerson {
 		return email;
 	}
 
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -95,5 +135,20 @@ public class Student extends APerson {
 	public String getUserRole() {
 		return userRole;
 	}
-	
+
+	public String getEntryDate() {
+		return entryDate;
+	}
+
+	public void setEntryDate(String entryDate) {
+		this.entryDate = entryDate;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 }

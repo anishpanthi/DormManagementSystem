@@ -19,4 +19,5 @@
 	<a href="admin/roomassignment">RoomAssignment</a><br /> 
 	<a href="admin/building">Building</a><br /> 
 	<a href="admin/room">Room</a>
+	<a href="admin/student">Student</a>
 <h1>This is Admin Page.</h1>

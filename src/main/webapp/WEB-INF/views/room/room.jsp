@@ -26,24 +26,19 @@
 				</div>
 			</div>
 		</c:if>
-		<form id="room" class="form-horizontal" action="room/create" method="POST">
+		<form:form  commandName="room" action="room/create" method="post">
 			<div class="form-group">
 				<label for="buildingNo" class="col-xs-3 control-label">Building
 					No</label>
 				<div class="col-xs-5">
-					<select name="buildingNo" class="form-control">
-						<option value="">--Select--</option>
-						<c:forEach var="building" items="${buildings}">
-							<option value="${building.buildingNo}">${building.buildingNo}</option>
-						</c:forEach>
-					</select>
+						<form:checkboxes items="${itemList}" itemLabel="name" itemValue="id" path="itemIds"/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="roomNo" class="col-xs-3 control-label">Room No</label>
 				<div class="col-xs-5">
-					<input type="text" required class="form-control" id="roomNo"
-						name="roomNo" placeholder="Room No" />
+					<form:input type="text" class="form-control" id="roomNo"
+						path="roomNo" placeholder="Room No" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -51,7 +46,7 @@
 					<button type="submit" class="btn btn-success">Create</button>
 				</div>
 			</div>
-		</form>
+		</form:form>
 	</div>
 </body>
 </html>
