@@ -9,49 +9,38 @@
 <title>DORM Management - Maintenance Form</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet" href='<c:url value="/resources/css/style.css"/>' />
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					
-					Act on Maintenance Request
-				
+		<div class="maintenance-row row">
+			<h3>Act on Maintenance Request</h3>
+			<form:form commandName="maintenance">
+
+				<div id="title">
+				<span class="glyphicon glyphicon-education"></span>
+				${maintenance.title}&nbsp;<label> - by ${maintenance.student.firstName}&nbsp;
+				${maintenance.student.lastName} on ${maintenance.registeredDate}
+				</label></div>
+
+				<div id="description">${maintenance.description}</div>
+				<div class="select form-group">
+					<label for="status">Action</label>
+					<form:select path="status">
+						<form:option value="New">New</form:option>
+						<form:option value="On Progres">On Progress</form:option>
+						<form:option value="complete">Completed</form:option>
+					</form:select>
+
 				</div>
-			</div>
-			<div class="panel-body">
-				<form:form commandName="maintenance">
-					<div class="form-group">
-						<div class="alert alert-info" role="alert">
-							${maintenance.title}</div>
-					</div>
-					<div class="form-group">
-						<div class="panel panel-default">
-							<div class="panel-body">${maintenance.description}</div>
-						</div>
+				<button type="submit" class="btn btn-success">
+					<span class="glyphicon glyphicon-ok"></span> Update
+				</button>
+				<form:hidden path="student" />
+			</form:form>
 
-					</div>
-					<div class="form-group">
-						<label for="status">Action</label>
-						<form:select path="status">
-							<form:option value="New">New</form:option>
-							<form:option value="On Progres">On Progress</form:option>
-							<form:option value="complete">Completed</form:option>
-						</form:select>
-
-					</div>
-					<button type="submit" class="btn btn-success">
-						<span class="glyphicon glyphicon-ok"></span> Update
-					</button>
-					<form:hidden path="student" />
-				</form:form>
-			</div>
 		</div>
-
 	</div>
-	</div>
-
 
 </body>
 </html>
