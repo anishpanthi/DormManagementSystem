@@ -41,7 +41,7 @@
 						<td>${maintenance.registeredDate}</td>
 						<td>${maintenance.status}</td>
 						<td><a href='#'>${maintenance.student.firstName}&nbsp;${maintenance.student.lastName}</a></td>
-						<td>207</td>
+						<td>${roomInfo}</td>
 						<td> 
 				<a href="<c:url value='/auth/staff/maintenance/edit/${maintenance.id}'></c:url>"><span
 								class="glyphicon glyphicon-pencil"></span></a>update</td>

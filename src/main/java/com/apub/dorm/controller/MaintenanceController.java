@@ -66,7 +66,10 @@ public class MaintenanceController {
 	@RequestMapping(value=STAFF_PATH +"/edit/{id}", method=RequestMethod.GET)
 	public String viewMaintenanceRequest(@PathVariable("id") Integer id, Model model){
 		model.addAttribute("maintenance", maintenanceService.findOne(id));
-		
+		/* 
+		 * Room Data
+		 */
+		model.addAttribute("roomInfo",207);
 		return "maintenance/update";
 	}
 	
