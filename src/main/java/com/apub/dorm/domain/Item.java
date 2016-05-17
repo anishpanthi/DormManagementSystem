@@ -1,11 +1,21 @@
 package com.apub.dorm.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+
+
+
 
 /**
  *
@@ -15,15 +25,18 @@ import javax.persistence.Id;
 public class Item implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue
 	protected Integer id;
-	
 	protected String itemName;
 	protected String description;
+
 	
-	@Column( nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
+	@ManyToMany(mappedBy="items")
+	private List<Room> rooms;
+
+	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
 	protected boolean available;
 
 	public Item() {
@@ -61,4 +74,13 @@ public class Item implements Serializable {
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
+
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
+	
 }

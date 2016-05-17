@@ -12,7 +12,7 @@ import com.apub.dorm.domain.Room;
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Serializable> {
 	
-	public List<Building> findRoomNumbersByBuildingNo(int buildingNumber);
+//	public List<Building> findRoomNumbersByBuildingNo(int buildingNumber);
 //	public List<Room> findByStudent(Student student);
 
 }
