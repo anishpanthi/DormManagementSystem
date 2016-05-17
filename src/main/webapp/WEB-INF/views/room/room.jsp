@@ -31,7 +31,7 @@
 				<label for="buildingNo" class="col-xs-3 control-label">Building
 					No</label>
 				<div class="col-xs-5">
-						<form:checkboxes items="${itemList}" itemLabel="name" itemValue="id" path="itemIds"/>
+						<form:checkboxes items="${itemList}" itemLabel="itemName" itemValue="id" path="itemIds"/>
 				</div>
 			</div>
 			<div class="form-group">
