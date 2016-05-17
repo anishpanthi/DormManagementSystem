@@ -17,6 +17,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author Anish Panthi
  */
 @Entity
+
 public class Maintenance {
 
 	private static final long serialVersionUID = 1L;
@@ -34,7 +35,7 @@ public class Maintenance {
 	@Column(name = "registeredDate", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	protected Date registeredDate;
 
-	protected MaintenanceStatus status;
+	protected String status;
 
 	protected Date updatedDate;
 
@@ -78,11 +79,11 @@ public class Maintenance {
 		this.registeredDate = registeredDate;
 	}
 
-	public MaintenanceStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(MaintenanceStatus status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 

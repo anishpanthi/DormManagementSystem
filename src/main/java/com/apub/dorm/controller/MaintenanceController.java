@@ -2,13 +2,10 @@ package com.apub.dorm.controller;
 
 import java.security.Principal;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +17,7 @@ import com.apub.dorm.service.MaintenanceService;
 import com.apub.dorm.service.StudentService;
 
 @Controller
-//@RequestMapping("")
+//@RequestMapping("auth/staff/maintenance/edit")
 public class MaintenanceController {
 	//storing the constant path
 
@@ -34,21 +31,24 @@ public class MaintenanceController {
 	@Autowired
 	private StudentService studentService;
 	
+	private Student loggedInStudent;
+	
 	@RequestMapping(value=STUDENT_PATH,method=RequestMethod.GET)
 	public String index(Model model, Principal principal){
-		model.addAttribute("maintenance", new Maintenance());
-		model.addAttribute("student",studentService.findByUsername(principal.getName()));
-		return   "maintenance/index";
+		loggedInStudent  = studentService.findByUsername(principal.getName());
+		Maintenance maintenance = new Maintenance();
+		maintenance.setStudent(loggedInStudent);
+		model.addAttribute("maintenance", maintenance);
+		model.addAttribute("student",loggedInStudent);
+		return "maintenance/index";
 	}
 	
 	@RequestMapping(value=STUDENT_PATH,method=RequestMethod.POST)
-	public String registerMaintenance(@Valid Maintenance maintenance, 
-			RedirectAttributes redirectAttributes,BindingResult bindingResult,
+	public String registerMaintenance(Maintenance maintenance, 
+			RedirectAttributes redirectAttributes,
 			Model model){
-		if(bindingResult.hasErrors()){
-			return "maintenance/index";
-		}
 		redirectAttributes.addFlashAttribute("postMessage", "Thanks. Your maintenance request is saved successfuly");
+		maintenance.setStudent(loggedInStudent);
 		maintenanceService.create(maintenance);
 		return "redirect:/auth/student"; //PRG Pattern
 	}
@@ -71,14 +71,12 @@ public class MaintenanceController {
 	}
 	
 	@RequestMapping(value=STAFF_PATH +"/edit/{id}", method=RequestMethod.POST)
-	public String updateMaintenanceRequest(@PathVariable("id") Integer id, @ModelAttribute("maintenance") Maintenance maintenance , 
-			RedirectAttributes redirectAttributes,Model model){
-		
-		maintenanceService.update(maintenance, id);
-		redirectAttributes.addFlashAttribute("postMessage", "Thanks. Your maintenance request is saved successfuly");
-		return "maintenance/list";
+	public String updateMaintenanceRequest(@PathVariable("id") int id, Maintenance maintenance,BindingResult result,RedirectAttributes redirectAttributes){
+		Maintenance newMaintenance = maintenanceService.findOne(id);
+		newMaintenance.setStatus(maintenance.getStatus());
+		System.out.println(maintenance.getStatus());
+		maintenanceService.update(newMaintenance,id);
+		redirectAttributes.addFlashAttribute("postMessage", "Maintenance request was updated successfuly");
+		return "redirect:/"+STAFF_PATH;
 	}
-	
-	
-	
 }

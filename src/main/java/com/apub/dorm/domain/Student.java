@@ -95,5 +95,5 @@ public class Student extends APerson {
 	public String getUserRole() {
 		return userRole;
 	}
-
+	
 }

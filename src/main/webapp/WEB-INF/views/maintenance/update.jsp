@@ -12,70 +12,39 @@
 </head>
 <body>
 	<div class="container">
-		<c:if test="${!empty postMessage}">
-			<div class="row">
-				<div class="alert alert-success">
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					<strong>${postMessage}</strong>
-				</div>
-			</div>
-		</c:if>
-
 		<div class="row">
 			<div class="panel panel-default">
-				<div class="panel-heading">Act on Maintenance Request</div>
-				<div class="panel-body">
+				<div class="panel-heading">
 					
-						<table class="table table-striped">
-							<tr>
-								<td>Name</td>
-								<td>Bijay</td>
-							</tr>
-							<tr>
-								<td>Room No.:</td>
-								<td>207</td>
-							</tr>
-							<tr>
-								<td>Issue Title</td>
-								<td>${maintenance.title}</td>
-							</tr>
-					
-							<tr>
-								<td>Issue Description</td>
-								<td>${maintenance.description}</td>
-							</tr>
+					Act on Maintenance Request
 				
-							<tr>
-								<td>Issue Title</td>
-								<td>${maintenance.title}</td>
-							</tr>
-							
-							<tr>
-							<td>Status</td>
-							<td><label style="font-size: 12px;
-									    color: #FDFDFD;
-									    background: #60A963;
-									    padding: 3px;
-									    text-transform: lowercase;">
-								${maintenance.status}</label></td>
-							</tr>
-							
-						</table>
-						
-			<form:form commandName="maintenance">
-				<div class="form-group">
-					<label for="status">Action</label> 
-					<form:select path="status">
-						<option value="0">New</option>
-						<option value="1">On Progress</option>
-						<option value="2">Completed</option>
-					</form:select>
-					
 				</div>
-				<button type="submit" class="btn btn-success">
-					<span class="glyphicon glyphicon-ok"></span> Update
-				</button>
-				
+			</div>
+			<div class="panel-body">
+				<form:form commandName="maintenance">
+					<div class="form-group">
+						<div class="alert alert-info" role="alert">
+							${maintenance.title}</div>
+					</div>
+					<div class="form-group">
+						<div class="panel panel-default">
+							<div class="panel-body">${maintenance.description}</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<label for="status">Action</label>
+						<form:select path="status">
+							<form:option value="New">New</form:option>
+							<form:option value="On Progres">On Progress</form:option>
+							<form:option value="complete">Completed</form:option>
+						</form:select>
+
+					</div>
+					<button type="submit" class="btn btn-success">
+						<span class="glyphicon glyphicon-ok"></span> Update
+					</button>
+					<form:hidden path="student" />
 				</form:form>
 			</div>
 		</div>

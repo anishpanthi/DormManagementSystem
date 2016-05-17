@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import com.apub.dorm.domain.MaintenanceStatus;
 import com.apub.dorm.domain.Student;
 import com.apub.dorm.domain.Maintenance;
 import com.apub.dorm.repository.MaintenanceRepository;
@@ -28,7 +27,7 @@ public class MaintenanceServiceImpl implements MaintenanceService{
 
 	@Override
 	public void create(Maintenance maintenance) {
-		if(maintenance.getStatus() == null) maintenance.setStatus(MaintenanceStatus.NEW);
+		if(maintenance.getStatus() == null) maintenance.setStatus("New");
 			maintenanceRepository.save(maintenance);
 		
 	}
@@ -49,6 +48,11 @@ public class MaintenanceServiceImpl implements MaintenanceService{
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Maintenance> findByStudent(Student student) {
+		return maintenanceRepository.findByStudent(student);
 	}
 
 	

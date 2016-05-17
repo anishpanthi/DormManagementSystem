@@ -35,6 +35,12 @@
 					<form:textarea path="description"  class="form-control"
 						id="description" />
 				</div>
+				<div class="form-group">
+					<div class="text-muted">
+						Submitting info as ${student.firstName}&nbsp;${student.lastName}
+					</div>
+				</div>
+				<%-- <form:hidden path="student"/> --%>
 				<button type="submit" class="btn btn-success">
 				<span class="glyphicon glyphicon-plus"></span>
 				Save</button>

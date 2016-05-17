@@ -1,5 +1,6 @@
 package com.apub.dorm.controller;
 
+import java.security.Principal;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -19,14 +20,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.apub.dorm.domain.Feedback;
+import com.apub.dorm.domain.Student;
 import com.apub.dorm.service.FeedbackService;
+import com.apub.dorm.service.MaintenanceService;
+import com.apub.dorm.service.StudentService;
 
 @Controller
 public class HomeController {
 
 	@Autowired
 	private FeedbackService feedbackService;
-
+	
+	@Autowired
+	private MaintenanceService maintenanceService;
+	
+	@Autowired private StudentService studentService;
+	
 	HttpSession session = null;
 
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
@@ -113,12 +122,14 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/auth/student", method = RequestMethod.GET)
-	public String afterAuthStudentPage(Model model) {
+	public String afterAuthStudentPage(Model model, Principal principal) {
 		// User user = (User)
 		// SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		// String username = user.getUsername();
 		// Owner owner = ownerService.findByUsername(username);
 		// model.addAttribute("owner", owner);
+		Student student = studentService.findByUsername(principal.getName());
+		model.addAttribute("maintenances", maintenanceService.findByStudent(student));
 		return "studentAuth";
 	}
 	

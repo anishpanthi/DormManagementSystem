@@ -13,6 +13,14 @@
 </head>
 <body>
 	<div class="container">
+		<c:if test="${!empty postMessage}">
+			<div class="row">
+				<div class="alert alert-success">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>${postMessage}</strong>
+				</div>
+			</div>
+		</c:if>
 		<div class="row">
 			<table class="table">
 				<tr>
@@ -25,21 +33,17 @@
 					<th>Room No</th>
 					<th>Action</th>
 				</tr>
-				<%
-					int counter = 1;
-				%>
-				<c:forEach items="${maintenances}" var="maintenance">
+				<c:forEach items="${maintenances}" var="maintenance" varStatus="counter">
 					<tr>
-						<td><%=counter++%></td>
+						<td><c:out value="${counter.index +1}"/></td>
 						<td>${maintenance.title}</td>
 						<td>${maintenance.description}</td>
 						<td>${maintenance.registeredDate}</td>
 						<td>${maintenance.status}</td>
-						<td><a href='#'>Bijay Khatri</a></td>
+						<td><a href='#'>${maintenance.student.firstName}&nbsp;${maintenance.student.lastName}</a></td>
 						<td>207</td>
-						<td><a href='#'><span
-								class="glyphicon glyphicon-eye-open"></span></a> view | 
-								<a href="<c:url value='/auth/staff/maintenance/edit/${maintenance.id}'></c:url>"><span
+						<td> 
+				<a href="<c:url value='/auth/staff/maintenance/edit/${maintenance.id}'></c:url>"><span
 								class="glyphicon glyphicon-pencil"></span></a>update</td>
 					</tr>
 				</c:forEach>

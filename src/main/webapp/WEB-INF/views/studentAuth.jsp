@@ -1,4 +1,5 @@
 <%@page session="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container">
 	<div class="row">
 		<div id="leftcontent" class="col-md-2 col-sm-6">
@@ -61,23 +62,19 @@
 							<th>Status</th>
 							<th>Last Updated Date</th>
 						</tr>
-							<tr>
-								<td>1</td>
-								<td>AC Not Working</td>
-								<td>Ac is not working between 10PM to 12</td>
-								<td>2016-05-15 12:12:12 am</td>
-								<td>New</td>
-								<td>NA</td>
-							</tr>
-
-							<tr>
-								<td>2</td>
-								<td>AC Not Working</td>
-								<td>Ac is not working between 10PM to 12</td>
-								<td>2016-04-15 12:12:12 am</td>
-								<td>Fixed</td>
-								<td>2016-04-20 12:12:12 am</td>
-							</tr>
+	
+				<c:forEach items="${maintenances}" var="maintenance" varStatus="counter">
+					<tr>
+						<td><c:out value="${counter.index +1}"/></td>
+						<td>${maintenance.title}</td>
+						<td>${maintenance.description}</td>
+						<td>${maintenance.registeredDate}</td>
+						<td>${maintenance.status}</td>
+						<td>${maintenance.updatedDate}</td>
+								
+					</tr>
+					</c:forEach>
+				
 						</table>
 					</div>
 				</div>
