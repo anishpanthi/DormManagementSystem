@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-	<c:if test="${!empty successMessage}">
+		<c:if test="${!empty successMessage}">
 			<div class="row">
 				<div class="alert alert-success">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -26,19 +26,24 @@
 				</div>
 			</div>
 		</c:if>
-		<form:form  commandName="room" action="room/create" method="post">
+		<form:form commandName="room" action="room/create" method="post" class="form-horizontal">
 			<div class="form-group">
-				<label for="buildingNo" class="col-xs-3 control-label">Building
-					No</label>
-				<div class="col-xs-5">
-						<form:checkboxes items="${itemList}" itemLabel="name" itemValue="id" path="itemIds"/>
+				<div class="row">
+					<label for="buildingNo" class="col-xs-3 control-label">Room
+						Items</label>
+					<div class="col-xs-5">
+						<form:checkboxes items="${itemList}" itemLabel="name"
+							itemValue="id" path="itemIds" />
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="roomNo" class="col-xs-3 control-label">Room No</label>
-				<div class="col-xs-5">
-					<form:input type="text" class="form-control" id="roomNo"
-						path="roomNo" placeholder="Room No" />
+				<div class="row">
+					<label for="roomNo" class="col-xs-3 control-label">Room No</label>
+					<div class="col-xs-5">
+						<form:input type="text" class="form-control input-sm" id="roomNo"
+							path="roomNo" placeholder="Room No" required="required" />
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -46,6 +51,8 @@
 					<button type="submit" class="btn btn-success">Create</button>
 				</div>
 			</div>
+
+
 		</form:form>
 	</div>
 </body>

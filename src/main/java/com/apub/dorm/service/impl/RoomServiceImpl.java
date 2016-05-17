@@ -27,10 +27,8 @@ public class RoomServiceImpl implements RoomService {
 		List<Item> tempItemList = new ArrayList<>();
 		for(int id: room.getItemIds()){
 			tempItemList.add(itemRepository.findById(id));
-			System.out.println(itemRepository.findById(id));
 		}
 		room.setItems(tempItemList);
-		System.out.println(room);
 		roomRepository.save(room);
 	}
 
@@ -47,6 +45,11 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public List<Item> getAllItems() {
 		return itemRepository.findAll();
+	}
+	
+	@Override
+	public List<Room> getAllRooms() {
+		return roomRepository.findAll();
 	}
 
 }

@@ -15,9 +15,6 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 
-
-
-
 /**
  *
  * @author Anish Panthi
@@ -28,15 +25,14 @@ public class Room {
 	@GeneratedValue
 	private Integer id;
 
-	@ManyToOne
-	@JoinColumn
+	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn
 	private Building building;
 
 	@OneToMany(mappedBy = "room")
 	private List<Student> students;
-	
-	
-	@ManyToMany(cascade =CascadeType.ALL)
+
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
 	private List<Item> items;
 	private int roomNo;
@@ -44,6 +40,7 @@ public class Room {
 
 	@Transient
 	private List<Integer> itemIds;
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -92,7 +89,6 @@ public class Room {
 		this.items = items;
 	}
 
-	
 	public List<Integer> getItemIds() {
 		return itemIds;
 	}
@@ -103,12 +99,7 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return "Room [id=" + id + ", building=" + building + ", students=" + students + ", items=" + items + ", roomNo="
-				+ roomNo + ", roomStatus=" + roomStatus + ", itemIds=" + itemIds + "]";
+		return "Room [id=" + id + ", students=" + students + ", roomNo=" + roomNo + ", roomStatus=" + roomStatus + "]";
 	}
-
-
-	
-	
 
 }

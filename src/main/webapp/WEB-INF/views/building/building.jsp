@@ -26,22 +26,39 @@
 				</div>
 			</div>
 		</c:if>
-		<form id="buildingInfo" class="form-horizontal"
-			action="building/create" method="post">
-			<div class="form-group">
-				<label for="buildingName" class="col-xs-3 control-label">Building
-					Name</label>
-				<div class="col-xs-5">
-					<input type="text" required class="form-control" id="buildingName"
-						name="buildingName" placeholder="Building Name" />
-				</div>
-			</div>
+		<form:form commandName="building" class="form-horizontal" action="building/create" method="POST">
 			<div class="form-group">
 				<label for="buildingNo" class="col-xs-3 control-label">Building
 					No</label>
 				<div class="col-xs-5">
-					<input type="text" required class="form-control" id="buildingNo"
-						name="buildingNo" placeholder="Building No" />
+					<form:input type="text" required="required" class="form-control"
+						id="buildingNo" path="buildingNo" placeholder="Building No" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="buildingAddress" class="col-xs-3 control-label">Building
+					Address</label>
+				<div class="col-xs-5">
+					<form:input type="text" required="required" class="form-control"
+						id="buildingAddress" path="buildingAddress"
+						placeholder="Building Address" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="buildingName" class="col-xs-3 control-label">Building
+					Name</label>
+				<div class="col-xs-5">
+					<form:input type="text" required="required" class="form-control"
+						id="buildingName" path="buildingName" placeholder="Building Name" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<label for="buildingNo" class="col-xs-3 control-label">Rooms</label>
+					<div class="col-xs-5">
+						<form:checkboxes items="${roomList}" itemLabel="roomNo"
+							itemValue="id" path="roomIds" />
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -49,7 +66,7 @@
 					<button type="submit" class="btn btn-success">Create</button>
 				</div>
 			</div>
-		</form>
+		</form:form>
 	</div>
 </body>
 </html>
