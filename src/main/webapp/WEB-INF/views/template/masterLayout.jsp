@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>APP - Dorm Management System</title>
+<title>APUB - Dormitory Management System</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/default.css" />"
@@ -38,8 +38,7 @@
 </style>
 </head>
 <body>
-	<div class="container-fluid"
-		style="border: #C1C1C1 solid 1px; border-radius: 10px; margin: 5px;">
+	<div class="container-fluid">
 		<!-- Header -->
 		<tiles:insertAttribute name="header" />
 		<!-- Menu Page -->
