@@ -14,7 +14,7 @@
 			<c:forEach items="${items}" var="it">
 				<tr>
 					<td><%=++counter%></td>
-					<td>${it.name}</td>
+					<td>${it.itemName}</td>
 					<td>${it.description}</td>
 					<td><a
 						href="<c:url value='/auth/admin/item/listItems/edit/${it.id}'></c:url>"

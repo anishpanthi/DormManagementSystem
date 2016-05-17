@@ -68,4 +68,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/item/listItems.jsp" />
 	</definition>
 	
+	<definition name="form/checkinForm" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/form/checkinForm.jsp" />
+	</definition>
+	
 </tiles-definitions>

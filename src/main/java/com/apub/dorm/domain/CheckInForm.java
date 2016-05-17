@@ -7,35 +7,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- *
- * @author Anish Panthi
- */
 @Entity
-public class Item implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class CheckInForm implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
-	protected Integer id;
-	
-	protected String itemName;
-	protected String description;
-	
-	@Column( nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
-	protected boolean available;
+	private Integer id;
+	private String itemName;
+	private String description;
 
-	public Item() {
+	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
+	private boolean available;
+	private String status;
 
-	}
+	public CheckInForm() {
 
-	public Integer getId() {
-		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getId() {
+		return id;
 	}
 
 	public String getItemName() {
@@ -60,5 +56,13 @@ public class Item implements Serializable {
 
 	public void setAvailable(boolean available) {
 		this.available = available;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

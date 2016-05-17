@@ -27,7 +27,7 @@
 			<form:form commandName="item">
 				<div class="form-group">
 					<label for="title">Name</label>
-					<form:input path="name" class="form-control" id="name" />
+					<form:input path="itemName" class="form-control" id="name" />
 				</div>
 				<div class="form-group">
 					<label for="description">Description</label>
