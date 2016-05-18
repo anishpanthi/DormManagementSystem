@@ -16,6 +16,7 @@ public interface RoomService {
 	
 	public List<Room> findRoomNumbersByBuildingNo(int buildingNumber);
 
+
 	public List<Item> getAllItems();
 	
 	public List<Room> getAllRooms();

@@ -75,5 +75,7 @@
 	<definition name="form/checkoutForm" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/form/checkoutForm.jsp" />
 	</definition>
-	
+	<definition name="student/student" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/student/student.jsp" />
+	</definition>
 </tiles-definitions>

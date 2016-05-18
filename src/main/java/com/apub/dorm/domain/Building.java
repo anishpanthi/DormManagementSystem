@@ -25,12 +25,14 @@ public class Building {
 	private String buildingType;
 	private int buildingNo;
 
+
+	@OneToMany(fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.ALL, mappedBy = "building")
 	@JsonIgnore
-	@OneToMany(cascade=javax.persistence.CascadeType.PERSIST, mappedBy = "building")
 	private List<Room> rooms;
 	
 
 	@Transient
+	@JsonIgnore
 	private List<Integer> roomIds;
 
 	public Building() {
