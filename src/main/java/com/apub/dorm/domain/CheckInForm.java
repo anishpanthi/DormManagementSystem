@@ -1,11 +1,13 @@
 package com.apub.dorm.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class CheckInForm implements Serializable{
@@ -21,6 +23,9 @@ public class CheckInForm implements Serializable{
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
 	private boolean available;
 	private String status;
+	
+	@Transient
+	List<Integer> checkedItemsId;
 
 	public CheckInForm() {
 
@@ -64,5 +69,13 @@ public class CheckInForm implements Serializable{
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public List<Integer> getCheckedItemsId() {
+		return checkedItemsId;
+	}
+
+	public void setCheckedItemsId(List<Integer> checkedItemsId) {
+		this.checkedItemsId = checkedItemsId;
 	}
 }

@@ -35,6 +35,9 @@
 	<p>
 		<a href="admin/form/checkinForm" class="btn btn-primary">CheckIn Form</a>
 	</p>
+	<p>
+		<a href="admin/form/checkoutForm" class="btn btn-primary">CheckOut Form</a>
+	</p>
 </div>
 
 

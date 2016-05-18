@@ -13,18 +13,18 @@
 	</c:if>
 	<br /> <br />
 	<div class="row">
-		<h4 class="text-success">Check The Items You Have In Your Room</h4>
-		<form:form modelAttribute="checkInFormData">
+		<h4 class="text-success">There are the items currently available in your room. Please mark the current condition of each item(s).</h4>
+		<form:form modelAttribute="checkOutFormData">
 			<table class="table table-hover">
 				<tr>
 					<th>S.N.</th>
 					<th>Item Name</th>
 					<th>Description</th>
-					<th>Available</th>
+					<th>Previous Status</th>
 					<th>Current Status</th>
 				</tr>
 
-				<c:forEach items="${checkinFormItems}" var="it" varStatus="counter">
+				<c:forEach items="${checkInFormItems}" var="it" varStatus="counter">
 					<tr>
 						<td><c:out value="${counter.index + 1}" /></td>
 						<td><form:input path="itemName" value="${it.itemName}"
@@ -32,13 +32,11 @@
 						<td><textarea rows="2" cols="40" name="description"
 								readonly="readonly">${it.description}</textarea></td>
 
-						<td><label class="radio-inline"><input type="radio"
-								name="available[${counter.index}]" value="1" checked>Yes</label>
-							<label class="radio-inline"><input type="radio"
-								name="available[${counter.index}]" value="0">No</label></td>
+						<td><textarea rows="2" cols="40" name="previousStatus"
+								readonly="readonly">${it.status}</textarea></td>
 
-						<td><form:textarea path="status" rows="2" cols="40"
-								value="status" /></td>
+						<td><form:textarea path="currentStatus" rows="2" cols="40"
+								value="currentStatus" /></td>
 						<td><input type="hidden" name="id" value="${it.id}" />
 					</tr>
 				</c:forEach>

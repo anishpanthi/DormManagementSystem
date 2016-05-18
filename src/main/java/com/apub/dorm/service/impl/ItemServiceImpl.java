@@ -20,7 +20,6 @@ public class ItemServiceImpl implements ItemService{
 
 	@Override
 	public List<Item> findAll() {
-		System.out.println(itemRepository.findAll());
 		return itemRepository.findAll();
 	}
 
