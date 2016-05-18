@@ -24,8 +24,6 @@ public class Building {
 	private String buildingAddress;
 	private String buildingType;
 	private int buildingNo;
-
-
 	@OneToMany(fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.ALL, mappedBy = "building")
 	@JsonIgnore
 	private List<Room> rooms;

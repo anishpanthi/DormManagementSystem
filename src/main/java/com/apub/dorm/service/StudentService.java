@@ -11,7 +11,6 @@ import com.apub.dorm.domain.Student;
 public interface StudentService {
 	
 	Student findByUsername(String username);
-	
 	Student findOne(int id);
 	void create(Student student);
 	List<Student> findListOfStudent();

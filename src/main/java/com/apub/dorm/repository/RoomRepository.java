@@ -14,6 +14,7 @@ import com.apub.dorm.domain.Room;
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Serializable> {
 	
+
 	Room findById(Integer id);
 
 //	List<Room> findRoomByBuildingId(int buildingNo);
