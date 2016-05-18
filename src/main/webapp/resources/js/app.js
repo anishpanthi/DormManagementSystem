@@ -9,7 +9,13 @@
 				.success(function(data) {
 					self.maintenances = data;
 			});
-		};this.getAll(); //Need this on body load
+		};this.getAll(); // Need this on body load
+		
+		this.getRooms = function() {
+			$http.get('http://localhost:8080/dormmanagement/api/room/all').success(function(data) {
+				self.rooms = data;
+			});
+		};this.getRooms();
 		
 		this.remove = function(id){
 			$http.delete(

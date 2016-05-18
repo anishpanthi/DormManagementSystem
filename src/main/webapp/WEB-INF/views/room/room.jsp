@@ -15,10 +15,12 @@
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 </head>
 <body>
 	<div class="container">
-	<c:if test="${!empty successMessage}">
+		<c:if test="${!empty successMessage}">
 			<div class="row">
 				<div class="alert alert-success">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -26,19 +28,25 @@
 				</div>
 			</div>
 		</c:if>
-		<form:form  commandName="room" action="room/create" method="post">
+		<form:form commandName="room" action="room/create" method="post"
+			class="form-horizontal">
 			<div class="form-group">
-				<label for="buildingNo" class="col-xs-3 control-label">Building
-					No</label>
-				<div class="col-xs-5">
-						<form:checkboxes items="${itemList}" itemLabel="itemName" itemValue="id" path="itemIds"/>
+				<div class="row">
+					<label for="buildingNo" class="col-xs-3 control-label">Room
+						Items</label>
+					<div class="col-xs-5">
+						<form:checkboxes items="${itemList}" itemLabel="itemName"
+							itemValue="id" path="itemIds" />
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="roomNo" class="col-xs-3 control-label">Room No</label>
-				<div class="col-xs-5">
-					<form:input type="text" class="form-control" id="roomNo"
-						path="roomNo" placeholder="Room No" />
+				<div class="row">
+					<label for="roomNo" class="col-xs-3 control-label">Room No</label>
+					<div class="col-xs-5">
+						<form:input type="text" class="form-control input-sm" id="roomNo"
+							path="roomNo" placeholder="Room No" required="required" />
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -46,7 +54,30 @@
 					<button type="submit" class="btn btn-success">Create</button>
 				</div>
 			</div>
+
+
 		</form:form>
+	</div>
+	<div>
+		<div>
+			<table class="table table-hover">
+				<tr>
+					<th>Room No</th>
+					<th>Building No</th>
+					<th>Availability</th>
+				</tr>
+				<tr ng-repeat="room in dorm.rooms">
+					<td>{{room.roomNo}}</td>
+					<td>{{room.roomStatus}}</td>
+					<td>{{room.roomNo}}</td>
+					<td><a href="#" class="label label-info" ng-click="editRoom()">
+							<span class="glyphicon glyphicon-edit	" /></span> Edit
+					</a> <a href="#" class="label label-danger" ng-click="removeRoom()">
+							<span class="glyphicon glyphicon-remove" /></span> Delete
+					</a></td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
