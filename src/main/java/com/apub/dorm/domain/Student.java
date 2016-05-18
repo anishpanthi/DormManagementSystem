@@ -1,5 +1,7 @@
 package com.apub.dorm.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +17,10 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author Anish Panthi
  */
 @Entity
-public class Student {
+public class Student implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
 	private Integer id;

@@ -21,4 +21,11 @@ public class StudentServiceImpl implements StudentService {
 		return studentRepository.findByUsername(username);
 	}
 
+	@Override
+	public Student findOne(int id) {
+		return studentRepository.findOne(id);
+	}
+	
+	
+
 }

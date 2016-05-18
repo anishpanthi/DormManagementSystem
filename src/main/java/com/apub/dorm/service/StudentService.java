@@ -8,4 +8,6 @@ import com.apub.dorm.domain.Student;
 public interface StudentService {
 	
 	Student findByUsername(String username);
+	
+	Student findOne(int id);
 }
