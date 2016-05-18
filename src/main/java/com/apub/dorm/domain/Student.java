@@ -39,6 +39,7 @@ public class Student implements Serializable{
 	private String entryDate;
 	private String studentId;
 	private String phoneNumber;
+	@Transient
 	private Integer buildingNo;
 	@Transient
 	private Integer roomNo;
@@ -48,10 +49,7 @@ public class Student implements Serializable{
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn
 	private Building buiding;
-	
-//	@ManyToOne(cascade=CascadeType.ALL)
-//	@JoinColumn
-//	private Building buiding;
+
 	public Student() {
 
 	}

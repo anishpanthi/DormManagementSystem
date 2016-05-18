@@ -22,7 +22,7 @@ public class StudentController{
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String getAssignmentForm(Model model) {
-		System.out.println(buildingService.getBuildings().toString());
+		//System.out.println(buildingService.getBuildings().toString());
 		model.addAttribute("buildings", buildingService.getBuildings());
 		model.addAttribute("student", new Student());
 		return "student/student";

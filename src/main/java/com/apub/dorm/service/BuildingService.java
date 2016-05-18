@@ -18,6 +18,7 @@ public interface BuildingService {
 	public void delete(Integer id);
 
 	public void update(Building building, int id);
+	
 
 //	List<Room> findRoomByBuilding(Building building);
 //

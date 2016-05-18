@@ -29,9 +29,9 @@ public class Building {
 	private int buildingNo;
 
 	@JsonIgnore
-	@OneToMany(cascade=javax.persistence.CascadeType.ALL, mappedBy = "building")
-	@ElementCollection(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.ALL, mappedBy = "building")
 	private List<Room> rooms;
+	
 	
 
 	@Transient

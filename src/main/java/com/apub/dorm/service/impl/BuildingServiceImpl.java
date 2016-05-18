@@ -36,6 +36,7 @@ public class BuildingServiceImpl implements BuildingService {
 	@Override
 	public List<Building> getBuildings() {
 		return buildingRepository.findAll();
+	
 	}
 
 	@Override
@@ -54,6 +55,7 @@ public class BuildingServiceImpl implements BuildingService {
 		buildingRepository.save(building);
 
 	}
+	
 	
 	/*@Override
 	public List<Room> findRoomByBuilding(Building building) {

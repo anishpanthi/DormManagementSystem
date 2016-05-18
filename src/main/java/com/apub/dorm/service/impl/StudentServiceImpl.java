@@ -38,8 +38,8 @@ public class StudentServiceImpl implements StudentService {
 	public void create(Student student) {
 		// TODO Auto-generated method stub
 		
-		//if(student.getBuildingNo()!=null)
-		//student.setBuiding(buildingRepository.findOne(student.getBuildingNo()));
+		if(student.getBuildingNo()!=null)
+		student.setBuiding(buildingRepository.findByBuildingNo(student.getBuildingNo()));
 		if(student.getRoomNo()!=null)
 		student.setRoom(roomRepository.findOne(student.getRoomNo()));
 		studentRepository.save(student);
