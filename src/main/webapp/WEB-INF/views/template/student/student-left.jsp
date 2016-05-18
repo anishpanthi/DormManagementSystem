@@ -5,7 +5,7 @@
 				<li class="list-group-item"><a href='#'>Request Maintenance</a>
 				</li>
 				<li class="list-group-item"><a href='#'>Arrival Form</a></li>
-				<li class="list-group-item"><a href='#'>Arrival Form</a></li>
+				<li class="list-group-item"><a href='#'>Departure Form</a></li>
 			</ul>
 		</div>
 

@@ -125,6 +125,7 @@ public class HomeController {
 	@RequestMapping(value = "/auth/student", method = RequestMethod.GET)
 	public String afterAuthStudentPage(Model model, Principal principal) {
 		Student student = studentService.findByUsername(principal.getName());
+		model.addAttribute("studentId",student.getId());
 		model.addAttribute("maintenances", maintenanceService.findByStudent(student));
 		return "studentAuth";
 	}

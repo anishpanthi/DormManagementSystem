@@ -33,7 +33,7 @@
 
 </head>
 <body>
-	<div class="container-fluid" ng-controller="DormController as dorm">
+	<div class="container-fluid" ng-controller="DormController as dorm" ng-init="dorm.init('${studentId}')">
 		<!-- Header  -->
 		<tiles:insertAttribute name="header" />
 		<!-- Menu Page -->
