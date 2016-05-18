@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.apub.dorm.domain.Building;
-import com.apub.dorm.domain.Item;
-import com.apub.dorm.domain.Maintenance;
 import com.apub.dorm.domain.Room;
-import com.apub.dorm.domain.Student;
 import com.apub.dorm.repository.BuildingRepository;
 import com.apub.dorm.repository.RoomRepository;
 import com.apub.dorm.service.BuildingService;
@@ -58,9 +55,14 @@ public class BuildingServiceImpl implements BuildingService {
 
 	}
 	
-	/*@Override
-	public List<Room> findRoomByBuildingId(int buildingNo) {
-		return roomRepository.findRoomByBuildingId(buildingNo);
-	}*/
+	@Override
+	public List<Room> findRoomByBuilding(Building building) {
+		return roomRepository.findRoomByBuilding(building);
+	}
+	
+	@Override
+	public List<Room> findRoomById(Integer buildingId) {
+		return roomRepository.findRoomById(buildingId);
+	}
 
 }

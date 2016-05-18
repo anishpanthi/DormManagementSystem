@@ -1,7 +1,5 @@
 package com.apub.dorm.controller;
 
-import java.security.Principal;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.apub.dorm.domain.Building;
-import com.apub.dorm.domain.Maintenance;
-import com.apub.dorm.domain.Room;
 import com.apub.dorm.service.BuildingService;
 import com.apub.dorm.service.RoomService;
 
@@ -33,7 +29,9 @@ public class BuildingInfoController {
 		model.addAttribute("roomList", roomService.getAllRooms());
 		if (building != null) {
 			model.addAttribute("building", building);
-//			model.addAttribute("roomsByBuilding", buildingService.findRoomByBuildingId(building.getId()));
+			// System.out.println("id: "+building.getId());
+			// model.addAttribute("roomsByBuilding",
+			// roomService.findRoomNumbersByBuildingNo(building.getBuildingNo()));
 		} else {
 			model.addAttribute("building", new Building());
 		}

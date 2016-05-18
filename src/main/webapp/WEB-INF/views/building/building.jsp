@@ -16,10 +16,13 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<body><br /><br /><br />
+<body>
+	<br />
+	<br />
+	<br />
 	<div class="container">
 		<div class="row">
-			<h4 class="text-success">Add Room</h4>
+			<h4 class="text-success">Add Building</h4>
 			<hr />
 			<c:if test="${!empty successMessage}">
 				<div class="row">
@@ -35,8 +38,8 @@
 					<label for="buildingNo" class="col-xs-3 control-label">Building
 						No</label>
 					<div class="col-xs-5">
-						<form:input type="text" class="form-control"
-							id="buildingNo" path="buildingNo" placeholder="Building No" />
+						<form:input type="text" class="form-control" id="buildingNo"
+							path="buildingNo" placeholder="Building No" />
 					</div>
 				</div>
 				<div class="form-group">
@@ -60,13 +63,13 @@
 					<div class="row">
 						<label for="buildingNo" class="col-xs-3 control-label">Rooms</label>
 						<div class="col-xs-5">
-							<form:checkboxes items="${roomList}" itemLabel="roomNo"
-								itemValue="id" path="roomIds" required="required" />
-							<%-- <c:if test="${!empty roomsByBuilding}">
+							<form:checkboxes class="checkbox-inline" items="${roomList}" itemLabel="roomNo"
+								itemValue="id" path="roomIds" />
+							<c:if test="${!empty roomsByBuilding}">
 								<c:forEach var="item" items="${roomsByBuilding}">
 									<form:input type="checkbox" path='${item.id}' />${item.roomNo }
 								</c:forEach>
-							</c:if> --%>
+							</c:if>
 						</div>
 					</div>
 				</div>

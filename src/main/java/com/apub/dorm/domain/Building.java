@@ -2,11 +2,14 @@ package com.apub.dorm.domain;
 
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
@@ -24,8 +27,10 @@ public class Building {
 	private String buildingAddress;
 	private String buildingType;
 	private int buildingNo;
-	@OneToMany(fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.ALL, mappedBy = "building")
+
 	@JsonIgnore
+	@OneToMany(cascade=javax.persistence.CascadeType.ALL, mappedBy = "building")
+	@ElementCollection(fetch = FetchType.EAGER)
 	private List<Room> rooms;
 	
 
