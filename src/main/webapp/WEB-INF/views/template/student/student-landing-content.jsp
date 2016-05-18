@@ -89,7 +89,24 @@
 			<div class="row">
 				<div class="panel panel-default">
 					<div class="panel-heading">Arrival Form</div>
-					<div class="panel-body">Picturioal Format of Check in Form</div>
+					<div class="panel-body">
+					<table class="table">
+							<tr>
+								<th>S.No</th>
+								<th>Item</th>
+								<th>Description</th>
+								<th>Requested Date</th>
+								<th>Status</th>
+							</tr>
+							<tr ng-repeat="item in dorm.checkInItems">
+								<td>{{$index+1}}</td>
+								<td>{{item.itemName}}</td>
+								<td>{{item.description}}</td>
+								<td>{{2+4}}</td>
+								<td>{{item.status}}</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
 			<div class="row">

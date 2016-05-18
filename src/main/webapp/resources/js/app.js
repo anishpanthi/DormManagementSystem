@@ -2,7 +2,7 @@
 	var app = angular.module('dormApp', []);
 	app.controller('DormController', ['$http',function($http) {
 		var self = this; // store the reference
-		
+		//get all maintenances
 		this.getAll = function(){
 			$http.get(
 			'http://localhost:8080/dormmanagement/api/maintenance/all')
@@ -46,6 +46,19 @@
 				self.getRooms();
 			});				
 		};
+		
+		//Get Check In Items by Student Id
+		
+		this.getCheckInItems = function(id){
+			$http.get(
+			'http://localhost:8080/dormmanagement/api/form/'+id)
+				.success(function(data) {
+					self.checkInItems = data;
+			});
+		};this.getCheckInItems(1);
+		
+		
+		
 	}]);
 
 })();
