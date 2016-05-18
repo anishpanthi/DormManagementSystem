@@ -1,5 +1,7 @@
 package com.apub.dorm.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +16,11 @@ import com.apub.dorm.domain.CheckInForm;
 import com.apub.dorm.domain.CheckInFormData;
 import com.apub.dorm.domain.CheckOutForm;
 import com.apub.dorm.domain.CheckOutFormData;
+import com.apub.dorm.domain.Student;
 import com.apub.dorm.service.CheckInService;
 import com.apub.dorm.service.CheckOutService;
 import com.apub.dorm.service.ItemService;
+import com.apub.dorm.service.StudentService;
 
 @Controller
 @RequestMapping(value = "/auth/admin/form")
@@ -30,9 +34,16 @@ public class FormController {
 	
 	@Autowired
 	private CheckOutService checkOutService;
+	
+	@Autowired
+	private StudentService studentService;
+	
+	private Student loggedInStudent;
 
 	@RequestMapping(value = "/checkinForm", method = RequestMethod.GET)
-	public String loadCheckInForm(Model model, HttpServletRequest request) {
+	public String loadCheckInForm(Model model, Principal principal) {
+		loggedInStudent  = studentService.findByUsername(principal.getName());
+		
 		model.addAttribute("checkinFormItems", itemService.findAll());
 		model.addAttribute("checkInFormData", new CheckInFormData());
 
@@ -56,10 +67,14 @@ public class FormController {
 				checkInForm.setDescription(descriptionCheckedItem[i]);
 				checkInForm.setStatus(statusCheckedItem[i]);
 				checkInForm.setAvailable(checkedItems[i]);
+				
+				checkInForm.setStudent(loggedInStudent);
+				
 				checkInService.create(checkInForm);
 				flag=false;
 			}
 		}
+		
 		if(flag){
 			System.out.println("No Item Selected. CheckIn Form is Empty.");
 		}
@@ -68,8 +83,11 @@ public class FormController {
 	}
 	
 	@RequestMapping(value="/checkoutForm", method=RequestMethod.GET)
-	public String loadCheckOutForm(Model model) {
-		model.addAttribute("checkInFormItems", checkInService.findAll());
+	public String loadCheckOutForm(Model model, Principal principal) {
+		
+		loggedInStudent  = studentService.findByUsername(principal.getName());
+		
+		model.addAttribute("checkInFormItems", checkInService.findByStudent(loggedInStudent));
 		model.addAttribute("checkOutFormData", new CheckOutFormData());
 
 		return "form/checkoutForm";
