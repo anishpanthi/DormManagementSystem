@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
 *
@@ -22,6 +24,10 @@ public class CheckOutForm implements Serializable {
 	private String description;
 	private String previousStatus;
 	private String currentStatus;
+	
+	@JoinColumn(name="student_id")
+	@OneToOne
+	private Student student;
 
 	public CheckOutForm(){
 		
@@ -31,8 +37,6 @@ public class CheckOutForm implements Serializable {
 		this.id = id;
 	}
 
-	@Id
-	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}
@@ -67,5 +71,13 @@ public class CheckOutForm implements Serializable {
 
 	public void setCurrentStatus(String currentStatus) {
 		this.currentStatus = currentStatus;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 }

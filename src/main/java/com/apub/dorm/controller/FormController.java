@@ -41,8 +41,10 @@ public class FormController {
 	private Student loggedInStudent;
 
 	@RequestMapping(value = "/checkinForm", method = RequestMethod.GET)
-	public String loadCheckInForm(Model model, Principal principal) {
+	public String loadCheckInForm(Model model, Principal principal, HttpServletRequest request) {
 		loggedInStudent  = studentService.findByUsername(principal.getName());
+		
+		request.getSession().setAttribute("loggedInStudent", loggedInStudent);
 		
 		model.addAttribute("checkinFormItems", itemService.findAll());
 		model.addAttribute("checkInFormData", new CheckInFormData());
@@ -83,9 +85,11 @@ public class FormController {
 	}
 	
 	@RequestMapping(value="/checkoutForm", method=RequestMethod.GET)
-	public String loadCheckOutForm(Model model, Principal principal) {
+	public String loadCheckOutForm(Model model, Principal principal, HttpServletRequest request) {
 		
 		loggedInStudent  = studentService.findByUsername(principal.getName());
+		
+		request.getSession().setAttribute("loggedInStudent", loggedInStudent);
 		
 		model.addAttribute("checkInFormItems", checkInService.findByStudent(loggedInStudent));
 		model.addAttribute("checkOutFormData", new CheckOutFormData());
@@ -108,10 +112,14 @@ public class FormController {
 				checkOutForm.setDescription(descriptionCheckedItem[i]);
 				checkOutForm.setPreviousStatus(previousStatusCheckedItem[i]);
 				checkOutForm.setCurrentStatus(currentStatusCheckedItems[i]);
+				
+				Student loggedInStudent = (Student)request.getSession().getAttribute("loggedInStudent");
+				System.out.println(loggedInStudent.getFirstName());
+				checkOutForm.setStudent(loggedInStudent);
+				
 				checkOutService.create(checkOutForm);
 		}
 		
 		return "redirect:/auth/admin";
 	}
-	
 }

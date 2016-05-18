@@ -5,6 +5,8 @@
  */
 package com.apub.dorm.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,9 +20,15 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author Anish Panthi
  */
 @Entity
-public class Feedback extends AFeedback {
+public class Feedback implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+
+	private Integer id;
+	private String firstName;
+	private String lastName;
+	private String comments;
+	private String email;
 
 	public Feedback() {
 	}
@@ -40,7 +48,7 @@ public class Feedback extends AFeedback {
 	public String getComments() {
 		return comments;
 	}
-	
+
 	public void setComments(String comments) {
 		this.comments = comments;
 	}

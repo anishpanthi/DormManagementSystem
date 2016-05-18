@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.apub.dorm.domain.CheckOutForm;
+import com.apub.dorm.domain.Student;
 import com.apub.dorm.repository.CheckOutRepository;
 import com.apub.dorm.service.CheckOutService;
 
@@ -25,5 +26,10 @@ public class CheckOutServiceImpl implements CheckOutService {
 	@Override
 	public List<CheckOutForm> findAll() {
 		return checkOutRepository.findAll();
+	}
+
+	@Override
+	public List<CheckOutForm> findByStudent(Student student) {
+		return checkOutRepository.findByStudent(student);
 	}
 }

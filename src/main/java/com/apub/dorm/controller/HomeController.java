@@ -119,21 +119,11 @@ public class HomeController {
 
 	@RequestMapping(value = "/auth/staff", method = RequestMethod.GET)
 	public String afterAuthStaffPage(Model model) {
-		// User user = (User)
-		// SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		// String username = user.getUsername();
-		// Doctor doctor = doctorService.findByUsername(username);
-		// model.addAttribute("doctor", doctor);
 		return "staffAuth";
 	}
 
 	@RequestMapping(value = "/auth/student", method = RequestMethod.GET)
 	public String afterAuthStudentPage(Model model, Principal principal) {
-		// User user = (User)
-		// SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		// String username = user.getUsername();
-		// Owner owner = ownerService.findByUsername(username);
-		// model.addAttribute("owner", owner);
 		Student student = studentService.findByUsername(principal.getName());
 		model.addAttribute("maintenances", maintenanceService.findByStudent(student));
 		return "studentAuth";

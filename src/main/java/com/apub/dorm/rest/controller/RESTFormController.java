@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apub.dorm.domain.CheckInForm;
+import com.apub.dorm.domain.CheckOutForm;
 import com.apub.dorm.domain.Student;
 import com.apub.dorm.service.CheckInService;
+import com.apub.dorm.service.CheckOutService;
 import com.apub.dorm.service.StudentService;;
 
 @RestController
@@ -23,9 +25,18 @@ public class RESTFormController {
 	@Autowired
 	private StudentService studentService;
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+	@Autowired
+	private CheckOutService checkOutService;
+	
+	@RequestMapping(value="/checkin/{id}",method=RequestMethod.GET)
 	public List<CheckInForm> getAllCheckInForm(@PathVariable("id") int id){
 			Student student = studentService.findOne(id); 
 			return checkInService.findByStudent(student);
+	}
+	
+	@RequestMapping(value="/checkout/{id}",method=RequestMethod.GET)
+	public List<CheckOutForm> getAllCheckOutForm(@PathVariable("id") int id){
+			Student student = studentService.findOne(id); 
+			return checkOutService.findByStudent(student);
 	}
 }

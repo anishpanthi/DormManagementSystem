@@ -3,6 +3,7 @@ package com.apub.dorm.service;
 import java.util.List;
 
 import com.apub.dorm.domain.CheckOutForm;
+import com.apub.dorm.domain.Student;
 
 public interface CheckOutService {
 
@@ -15,5 +16,7 @@ public interface CheckOutService {
 //	public void update(CheckOutForm checkOutForm);
 
 //	public CheckOutForm findById(int id);
+	
+	List<CheckOutForm> findByStudent(Student student);
 	
 }
