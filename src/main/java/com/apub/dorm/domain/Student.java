@@ -38,17 +38,16 @@ public class Student implements Serializable{
 	private String entryDate;
 	private String studentId;
 	private String phoneNumber;
-	@Transient
 	private Integer buildingNo;
 	@Transient
 	private Integer roomNo;
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn
 	private Room room;
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn
-	private Building buiding;
-	
+//	@ManyToOne(cascade=CascadeType.ALL)
+//	@JoinColumn
+//	private Building buiding;
+//	
 	public Student() {
 
 	}
@@ -128,13 +127,13 @@ public class Student implements Serializable{
 	}
 	
 
-	public Building getBuiding() {
-		return buiding;
-	}
-
-	public void setBuiding(Building buiding) {
-		this.buiding = buiding;
-	}
+//	public Building getBuiding() {
+//		return buiding;
+//	}
+//
+//	public void setBuiding(Building buiding) {
+//		this.buiding = buiding;
+//	}
 
 	public void setEmail(String email) {
 		this.email = email;
