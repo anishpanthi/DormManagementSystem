@@ -28,8 +28,7 @@
 				</div>
 			</div>
 		</c:if>
-		<form:form commandName="room" action="room/create" method="post"
-			class="form-horizontal">
+		<form:form commandName="room" method="post" class="form-horizontal">
 			<div class="form-group">
 				<div class="row">
 					<label for="buildingNo" class="col-xs-3 control-label">Room
@@ -44,7 +43,7 @@
 				<div class="row">
 					<label for="roomNo" class="col-xs-3 control-label">Room No</label>
 					<div class="col-xs-5">
-						<form:input type="text" class="form-control input-sm" id="roomNo"
+						<form:input type="text" class="form-control" id="roomNo"
 							path="roomNo" placeholder="Room No" required="required" />
 					</div>
 				</div>
@@ -63,17 +62,19 @@
 			<table class="table table-hover">
 				<tr>
 					<th>Room No</th>
-					<th>Building No</th>
 					<th>Availability</th>
+					<th>Action</th>
 				</tr>
 				<tr ng-repeat="room in dorm.rooms">
 					<td>{{room.roomNo}}</td>
 					<td>{{room.roomStatus}}</td>
-					<td>{{room.roomNo}}</td>
-					<td><a href="#" class="label label-info" ng-click="editRoom()">
-							<span class="glyphicon glyphicon-edit	" /></span> Edit
-					</a> <a href="#" class="label label-danger" ng-click="removeRoom()">
-							<span class="glyphicon glyphicon-remove" /></span> Delete
+					<td><a
+						href='<c:url value="/auth/admin/room/edit/{{room.id}}"/>'
+						class="label label-info"> <span
+							class="glyphicon glyphicon-edit	" /></span> Edit
+					</a> &nbsp;&nbsp;<a href="#" class="label label-danger"
+						ng-click="dorm.removeRoom(room.id)"> <span
+							class="glyphicon glyphicon-remove" /></span> Delete
 					</a></td>
 				</tr>
 			</table>

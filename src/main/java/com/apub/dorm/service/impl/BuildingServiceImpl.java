@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.apub.dorm.domain.Building;
 import com.apub.dorm.domain.Item;
+import com.apub.dorm.domain.Maintenance;
 import com.apub.dorm.domain.Room;
 import com.apub.dorm.repository.BuildingRepository;
 import com.apub.dorm.repository.RoomRepository;
@@ -37,6 +38,23 @@ public class BuildingServiceImpl implements BuildingService {
 	@Override
 	public List<Building> getBuildings() {
 		return buildingRepository.findAll();
+	}
+
+	@Override
+	public Building findOne(Integer id) {
+		return buildingRepository.findOne(id);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		buildingRepository.delete(id);
+	}
+
+	@Override
+	public void update(Building building, int id) {
+		building.setId(id);
+		buildingRepository.save(building);
+
 	}
 
 }

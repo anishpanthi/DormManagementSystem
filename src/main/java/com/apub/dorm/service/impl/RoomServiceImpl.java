@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.apub.dorm.domain.Building;
 import com.apub.dorm.domain.Item;
 import com.apub.dorm.domain.Maintenance;
 import com.apub.dorm.domain.Room;
@@ -61,6 +62,25 @@ public class RoomServiceImpl implements RoomService {
 			roomInfo.add(new RoomInfo(room.getRoomNo(), room.getRoomStatus()));
 		}
 		return roomInfo;
+	}
+	
+	@Override
+	public Room findOne(Integer id) {
+		return roomRepository.findOne(id);
+	}
+	
+	@Override
+	public void delete(int id) {
+		roomRepository.delete(id);
+		
+	}
+	
+	@Override
+	public void update(Room room, int id) {
+		room.setId(id);
+		room.setBuilding(room.getBuilding());
+		roomRepository.save(room);
+
 	}
 
 }

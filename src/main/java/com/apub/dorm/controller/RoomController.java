@@ -5,10 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.apub.dorm.domain.Building;
 import com.apub.dorm.domain.Room;
 import com.apub.dorm.service.RoomService;
 
@@ -19,8 +21,8 @@ public class RoomController {
 	private RoomService roomService;
 
 	@RequestMapping
-	public String getAssignmentForm(Model model) {
-		model.addAttribute("room", new Room());
+	public String getRoomForm(Room room, Model model) {
+		model.addAttribute("room", room);
 		model.addAttribute("itemList", roomService.getAllItems());
 		return "room/room";
 
@@ -34,5 +36,22 @@ public class RoomController {
 			flashAttributes.addFlashAttribute("successMessage", "Room successfully created");
 		}
 		return "redirect:/auth/admin/room";
+	}
+	
+	/********************* Update Maintenance Request By ID **********/
+	//------------------POST REQUEST ---------------------//
+	@RequestMapping(value="/edit/{id}",method=RequestMethod.POST)
+	public String updateRoom(@PathVariable Integer id,Room room, Model model){
+		roomService.update(room, id);
+		return "redirect:/auth/admin/room"; //PRG Pattern
+		
+	}
+	
+	/********************* Update Room Request By ID **********/
+	// ------------------GET REQUEST ---------------------//
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public String updateBuildingForm(@PathVariable Integer id, Model model) {
+		return getRoomForm(roomService.findOne(id), model);
+
 	}
 }

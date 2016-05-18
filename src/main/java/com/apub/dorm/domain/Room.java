@@ -3,6 +3,7 @@ package com.apub.dorm.domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
@@ -26,14 +29,17 @@ public class Room {
 //	@JoinColumn
 	private Building building;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "room")
 	private List<Student> students;
 
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
 	private List<Item> items;
 	private int roomNo;
-	private String roomStatus;
+	@Column(name = "roomStatus")
+	private String roomStatus = "Yes";
 
 	@Transient
 	private List<Integer> itemIds;

@@ -23,4 +23,10 @@ public interface RoomService {
 	
 	public List<RoomInfo> findAll();
 
+	public Room findOne(Integer id);
+	
+	public void delete(int id);
+
+	public void update(Room room, int id);
+
 }

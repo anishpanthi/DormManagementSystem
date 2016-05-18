@@ -3,6 +3,7 @@ package com.apub.dorm.domain;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -10,6 +11,8 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.transaction.annotation.Transactional;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Transactional
@@ -22,6 +25,7 @@ public class Building {
 	private String buildingType;
 	private int buildingNo;
 
+	@JsonIgnore
 	@OneToMany(cascade=javax.persistence.CascadeType.PERSIST, mappedBy = "building")
 	private List<Room> rooms;
 	

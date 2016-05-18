@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</c:if>
-		<form:form commandName="building" class="form-horizontal" action="building/create" method="POST">
+		<form:form commandName="building" class="form-horizontal" method="POST">
 			<div class="form-group">
 				<label for="buildingNo" class="col-xs-3 control-label">Building
 					No</label>
@@ -67,6 +67,30 @@
 				</div>
 			</div>
 		</form:form>
+	</div>
+	<div>
+		<div>
+			<table class="table table-hover">
+				<tr>
+					<th>Building No</th>
+					<th>Building Name</th>
+					<th>Building Address</th>
+					<th>Action</th>
+				</tr>
+				<tr ng-repeat="building in dorm.buildings">
+					<td>{{building.buildingNo}}</td>
+					<td>{{building.buildingName}}</td>
+					<td>{{building.buildingAddress}}</td>
+					<td><a
+						href='<c:url value="/auth/admin/building/edit/{{building.id}}"/>'
+						class="label label-info"> <span
+							class="glyphicon glyphicon-edit" /></span> Edit
+					</a> &nbsp;&nbsp;&nbsp;<a href='#' class="label label-danger" ng-click="dorm.removeBuilding(building.id)"> <span
+							class="glyphicon glyphicon-remove" /></span> Delete
+					</a></td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
