@@ -1,5 +1,6 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -23,14 +24,6 @@
 <script type="text/javascript"
 	src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <script type="text/javascript"
-	src="<c:url value="/resources/js/picker.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/picker.date.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/picker.time.js" />"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/customdate.js" />"></script>
-<script type="text/javascript"
 	src="<c:url value="/resources/js/custom.js" />"></script>
 	
 <!-- Angular JS -->	
@@ -38,25 +31,20 @@
 <script type="text/javascript"
 	src="<c:url value="/resources/js/app.js" />"></script>
 
-<style>
-</style>
 </head>
 <body>
 	<div class="container-fluid" ng-controller="DormController as dorm">
-		<!-- Header -->
+		<!-- Header  -->
 		<tiles:insertAttribute name="header" />
 		<!-- Menu Page -->
-		<div class="col-md-12" style="background-color: #FCFCFC;">
-			<tiles:insertAttribute name="menu" />
-		</div>
+		<tiles:insertAttribute name="menu" />
 		<!-- Body Page -->
-		<div class="col-md-12" style="margin-top:10px; min-height: 500px;">
-			<tiles:insertAttribute name="body" />
-		</div>
+		<tiles:insertAttribute name="body" />
 		<!-- Footer Page -->
-		<!-- 		<div style="margin-top: 10px;"> -->
-		<tiles:insertAttribute name="footer" />
-		<!-- End of Container Fluid		-->
+		<div id="dorm-footer">
+			<tiles:insertAttribute name="footer" />
+			<!-- End of Container Fluid		-->
+		</div>
 	</div>
 </body>
 </html>
