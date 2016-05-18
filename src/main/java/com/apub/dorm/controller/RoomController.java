@@ -1,5 +1,7 @@
 package com.apub.dorm.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,8 +30,8 @@ public class RoomController {
 
 	}
 
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String createRoom(@ModelAttribute("room") Room room, BindingResult result,
+	@RequestMapping(method = RequestMethod.POST)
+	public String createRoom(@ModelAttribute("room") @Valid Room room, BindingResult result,
 			RedirectAttributes flashAttributes) {
 		if (!result.hasErrors()) {
 			roomService.create(room);
@@ -38,10 +40,10 @@ public class RoomController {
 		return "redirect:/auth/admin/room";
 	}
 	
-	/********************* Update Maintenance Request By ID **********/
+	/********************* Update Room Request By ID **********/
 	//------------------POST REQUEST ---------------------//
 	@RequestMapping(value="/edit/{id}",method=RequestMethod.POST)
-	public String updateRoom(@PathVariable Integer id,Room room, Model model){
+	public String updateRoom(@PathVariable Integer id,@Valid Room room, Model model){
 		roomService.update(room, id);
 		return "redirect:/auth/admin/room"; //PRG Pattern
 		

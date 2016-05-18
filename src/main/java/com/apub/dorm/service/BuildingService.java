@@ -11,8 +11,14 @@ import com.apub.dorm.domain.Room;
 @Service
 public interface BuildingService {
 	public void create(Building building);
+
 	public List<Building> getBuildings();
+
 	public Building findOne(Integer id);
+
 	public void delete(Integer id);
+
 	public void update(Building building, int id);
+
+	List<Room> findRoomByBuildingId(int buildingNo);
 }

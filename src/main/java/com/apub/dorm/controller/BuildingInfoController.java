@@ -2,6 +2,8 @@ package com.apub.dorm.controller;
 
 import java.security.Principal;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +33,7 @@ public class BuildingInfoController {
 		model.addAttribute("roomList", roomService.getAllRooms());
 		if (building != null) {
 			model.addAttribute("building", building);
+			model.addAttribute("roomsByBuilding", buildingService.findRoomByBuildingId(building.getId()));
 		} else {
 			model.addAttribute("building", new Building());
 		}
@@ -39,8 +42,8 @@ public class BuildingInfoController {
 
 	}
 
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String createForm(@ModelAttribute("building") Building building, BindingResult result,
+	@RequestMapping(method = RequestMethod.POST)
+	public String createForm(@ModelAttribute("building") @Valid Building building, BindingResult result,
 			RedirectAttributes redirectAttributes) {
 		if (!result.hasErrors()) {
 			buildingService.create(building);
@@ -48,14 +51,14 @@ public class BuildingInfoController {
 		}
 		return "redirect:/auth/admin/building";
 	}
-	
+
 	/********************* Update Maintenance Request By ID **********/
-	//------------------POST REQUEST ---------------------//
-	@RequestMapping(value="/edit/{id}",method=RequestMethod.POST)
-	public String updateBuilding(@PathVariable Integer id,Building building, Model model){
+	// ------------------POST REQUEST ---------------------//
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+	public String updateBuilding(@PathVariable Integer id, Building building, Model model) {
 		buildingService.update(building, id);
-		return "redirect:/auth/admin/building"; //PRG Pattern
-		
+		return "redirect:/auth/admin/building"; // PRG Pattern
+
 	}
 
 	/********************* Update Building Request By ID **********/

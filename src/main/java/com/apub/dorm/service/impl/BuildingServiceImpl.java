@@ -10,6 +10,7 @@ import com.apub.dorm.domain.Building;
 import com.apub.dorm.domain.Item;
 import com.apub.dorm.domain.Maintenance;
 import com.apub.dorm.domain.Room;
+import com.apub.dorm.domain.Student;
 import com.apub.dorm.repository.BuildingRepository;
 import com.apub.dorm.repository.RoomRepository;
 import com.apub.dorm.service.BuildingService;
@@ -55,6 +56,11 @@ public class BuildingServiceImpl implements BuildingService {
 		building.setId(id);
 		buildingRepository.save(building);
 
+	}
+	
+	@Override
+	public List<Room> findRoomByBuildingId(int buildingNo) {
+		return roomRepository.findRoomByBuildingId(buildingNo);
 	}
 
 }

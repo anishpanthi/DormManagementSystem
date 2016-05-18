@@ -19,43 +19,53 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 </head>
 <body>
+	<br />
+	<br />
+	<br />
 	<div class="container">
-		<c:if test="${!empty successMessage}">
-			<div class="row">
-				<div class="alert alert-success">
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					<strong>${successMessage}</strong>
-				</div>
-			</div>
-		</c:if>
-		<form:form commandName="room" method="post" class="form-horizontal">
-			<div class="form-group">
+		<div class="row">
+			<h4 class="text-success">Add Room</h4>
+			<hr />
+			<c:if test="${!empty successMessage}">
 				<div class="row">
-					<label for="buildingNo" class="col-xs-3 control-label">Room
-						Items</label>
-					<div class="col-xs-5">
-						<form:checkboxes items="${itemList}" itemLabel="itemName"
-							itemValue="id" path="itemIds" />
+					<div class="alert alert-success">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<strong>${successMessage}</strong>
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<div class="row">
-					<label for="roomNo" class="col-xs-3 control-label">Room No</label>
-					<div class="col-xs-5">
-						<form:input type="text" class="form-control" id="roomNo"
-							path="roomNo" placeholder="Room No" required="required" />
+			</c:if>
+			<form:form commandName="room" method="post" class="form-horizontal">
+				<div>
+					<form:errors path="*" />
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<label for="roomNo" class="col-xs-3 control-label">Room No</label>
+						<div class="col-xs-5">
+							<form:input type="text" class="form-control" id="roomNo"
+								path="roomNo" placeholder="Room No" required="required" />
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-xs-5 col-xs-offset-3">
-					<button type="submit" class="btn btn-success">Create</button>
+				<div class="form-group">
+					<div class="row">
+						<label for="buildingNo" class="col-xs-3 control-label">Room
+							Items</label>
+						<div class="col-xs-5">
+							<form:checkboxes items="${itemList}"
+								itemLabel="itemName" itemValue="id" path="itemIds" />
+						</div>
+					</div>
 				</div>
-			</div>
+				<div class="form-group">
+					<div class="col-xs-5 col-xs-offset-3">
+						<button type="submit" class="btn btn-success">Create</button>
+					</div>
+				</div>
 
 
-		</form:form>
+			</form:form>
+		</div>
 	</div>
 	<div>
 		<div>
