@@ -19,7 +19,7 @@ public interface BuildingService {
 
 	public void update(Building building, int id);
 
-	List<Room> findRoomByBuilding(Building building);
-
-	public List<Room> findRoomById(Integer buildingId);
+//	List<Room> findRoomByBuilding(Building building);
+//
+//	public List<Room> findRoomById(Integer buildingId);
 }

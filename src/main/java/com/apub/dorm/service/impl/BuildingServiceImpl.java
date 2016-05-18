@@ -55,7 +55,7 @@ public class BuildingServiceImpl implements BuildingService {
 
 	}
 	
-	@Override
+	/*@Override
 	public List<Room> findRoomByBuilding(Building building) {
 		return roomRepository.findRoomByBuilding(building);
 	}
@@ -63,6 +63,6 @@ public class BuildingServiceImpl implements BuildingService {
 	@Override
 	public List<Room> findRoomById(Integer buildingId) {
 		return roomRepository.findRoomById(buildingId);
-	}
+	}*/
 
 }
