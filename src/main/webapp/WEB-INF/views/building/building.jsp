@@ -62,11 +62,11 @@
 						<div class="col-xs-5">
 							<form:checkboxes items="${roomList}" itemLabel="roomNo"
 								itemValue="id" path="roomIds" required="required" />
-							<c:if test="${!empty roomsByBuilding}">
+							<%-- <c:if test="${!empty roomsByBuilding}">
 								<c:forEach var="item" items="${roomsByBuilding}">
 									<form:input type="checkbox" path='${item.id}' />${item.roomNo }
 								</c:forEach>
-							</c:if>
+							</c:if> --%>
 						</div>
 					</div>
 				</div>

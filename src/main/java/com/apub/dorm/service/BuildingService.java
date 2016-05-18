@@ -20,5 +20,5 @@ public interface BuildingService {
 
 	public void update(Building building, int id);
 
-	List<Room> findRoomByBuildingId(int buildingNo);
+//	List<Room> findRoomByBuildingId(int buildingNo);
 }

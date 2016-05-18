@@ -18,8 +18,8 @@
 
 <div align="center">
 	<a href="admin/roomassignment" class="btn btn-primary">RoomAssignment</a>&nbsp;&nbsp;|
-	<a href="building" class="btn btn-primary">Building</a>&nbsp;&nbsp;| <a
-		href="room" class="btn btn-primary">Room</a>&nbsp;&nbsp;| <a
+	<a href="admin/building" class="btn btn-primary">Building</a>&nbsp;&nbsp;| <a
+		href="admin/room" class="btn btn-primary">Room</a>&nbsp;&nbsp;| <a
 		href="admin/item" class="btn btn-primary">Add Items</a>&nbsp;&nbsp;| <a
 		href="admin/item/listItems" class="btn btn-primary">List Items</a>&nbsp;&nbsp;|
 	<a href="admin/form/checkinForm" class="btn btn-primary">CheckIn

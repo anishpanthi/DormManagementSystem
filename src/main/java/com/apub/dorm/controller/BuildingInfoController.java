@@ -33,7 +33,7 @@ public class BuildingInfoController {
 		model.addAttribute("roomList", roomService.getAllRooms());
 		if (building != null) {
 			model.addAttribute("building", building);
-			model.addAttribute("roomsByBuilding", buildingService.findRoomByBuildingId(building.getId()));
+//			model.addAttribute("roomsByBuilding", buildingService.findRoomByBuildingId(building.getId()));
 		} else {
 			model.addAttribute("building", new Building());
 		}
