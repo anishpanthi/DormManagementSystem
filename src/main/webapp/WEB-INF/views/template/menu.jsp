@@ -13,8 +13,12 @@
 	</div>
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand nav nav-pills" href="#"><spring:message
-					code="home.label.heading" /></a>
+		<a class="navbar-brand nav nav-pills" href="#">
+			<spring:message
+					code="home.label.heading" />
+			</a>
+		<img style="height:50px;width:50px;position: relative;left: -94%;" src='<c:url value="/resources/img/dorm.png"/>' alt="logo"/>
+			
 		</div>
 		<ul class="nav nav-pills nav-tabs navbar-nav">
 			<li><a href="${pageContext.request.contextPath}/">Home</a></li>

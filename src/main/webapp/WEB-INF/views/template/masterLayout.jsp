@@ -11,12 +11,7 @@
 <title>APUB - Dormitory Management System</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/css/default.css" />"
-	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/css/default.date.css" />"
-	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/resources/css/default.time.css" />"
-	rel="stylesheet" type="text/css" />
+
 	<link href="<c:url value="/resources/css/login.css" />"
 	rel="stylesheet" type="text/css" />
 	
@@ -55,7 +50,7 @@
 			<tiles:insertAttribute name="menu" />
 		</div>
 		<!-- Body Page -->
-		<div class="col-md-12" style="min-height: 500px;">
+		<div class="col-md-12" style="margin-top:10px; min-height: 500px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<!-- Footer Page -->

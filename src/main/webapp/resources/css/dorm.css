@@ -1,4 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
-  font-family: "Open Sans";
+	font-family: "Open Sans";
+	background: #EAEAEA;
+	color: #777;
+}
+
+/*** For Student Landing Page ***/
+.student {
+	color: #969696;
+	background: rgb(241, 255, 224);
+	padding: 10px;
+	border-bottom: 2px solid #8BC34A;
+	font-size: .9em;
+	margin-top: 1.1em;
+}
+
+label.member-after-login-welcome {
+	color: #652C40;
+	font-size: .9em;
+}
+
+/**** OVERRIDE BootStrap ****/
+.panel-default>.panel-heading {
+	background-color: #5BC0DE;
+	border-color: #ddd;
+	color: #FDFDFD;
+	font-weight: 600;
 }
