@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -24,6 +26,7 @@ import com.apub.dorm.domain.Student;
 import com.apub.dorm.service.FeedbackService;
 import com.apub.dorm.service.MaintenanceService;
 import com.apub.dorm.service.StudentService;
+import com.apub.dorm.service.UserService;
 
 @Controller
 public class HomeController {
@@ -34,7 +37,11 @@ public class HomeController {
 	@Autowired
 	private MaintenanceService maintenanceService;
 	
-	@Autowired private StudentService studentService;
+	@Autowired 
+	private StudentService studentService;
+	
+	@Autowired
+	private UserService userService;
 	
 	HttpSession session = null;
 
@@ -103,11 +110,10 @@ public class HomeController {
 
 	@RequestMapping(value = "/auth/admin", method = RequestMethod.GET)
 	public String afterAuthAdminPage(Model model) {
-		// User user = (User)
-		// SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		// String username = user.getUsername();
-		// Admin admin = adminService.findByUsername(username);
-		// model.addAttribute("admin", admin);
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String username = user.getUsername();
+		com.apub.dorm.domain.User appUser = userService.findByUsername(username);
+		model.addAttribute("user", appUser);
 		return "adminAuth";
 	}
 
