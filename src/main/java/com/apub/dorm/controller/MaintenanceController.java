@@ -74,6 +74,7 @@ public class MaintenanceController {
 	 * 
 	 * For STAFF
 	 */
+	/********************* GET Maintenances *******************/
 	@RequestMapping(value=STAFF_PATH,method=RequestMethod.GET)
 	public String getAllMaintenanceRequest(Model model){
 		model.addAttribute("maintenances",maintenanceService.findAll());

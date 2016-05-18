@@ -6,6 +6,7 @@ body {
 	color: #777;
 }
 
+
 /*** For Student Landing Page ***/
 .student {
 	color: rgba(52, 82, 107, 0.78);
@@ -154,6 +155,14 @@ nav#dorm-nav {
 .dynamic-checkboxes input[type=checkbox],.checkbox-inline{
 	margin-left:10px;
 	margin-right:2px;
+}
+
+
+/*******Maintenance************/
+div.display-list{
+	margin-top:2%;
+	width:90%;
+	margin:auto;
 }
 /**** OVERRIDE BootStrap ****/
 .panel {
