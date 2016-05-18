@@ -14,6 +14,12 @@ import com.apub.dorm.domain.Room;
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Serializable> {
 	
+
+	Room findById(Integer id);
+
+//	List<Room> findRoomByBuildingId(int buildingNo);
+	
+//	public List<Building> findRoomNumbersByBuildingNo(int buildingNumber);
 	Room findById(int id);
 	@Query("FROM Room r WHERE r.building.buildingNo=:buildingNumber")
 	public List<Room> findRoomNumbersByBuildingNo(int buildingNumber);

@@ -1,5 +1,7 @@
 package com.apub.dorm.domain;
 
+
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,7 +20,10 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author Anish Panthi
  */
 @Entity
-public class Student {
+public class Student implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -34,7 +39,6 @@ public class Student {
 	private String entryDate;
 	private String studentId;
 	private String phoneNumber;
-	@Transient
 	private Integer buildingNo;
 	@Transient
 	private Integer roomNo;
@@ -45,6 +49,9 @@ public class Student {
 	@JoinColumn
 	private Building buiding;
 	
+//	@ManyToOne(cascade=CascadeType.ALL)
+//	@JoinColumn
+//	private Building buiding;
 	public Student() {
 
 	}
@@ -123,7 +130,6 @@ public class Student {
 		this.major = major;
 	}
 	
-
 	public Building getBuiding() {
 		return buiding;
 	}
@@ -131,7 +137,6 @@ public class Student {
 	public void setBuiding(Building buiding) {
 		this.buiding = buiding;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}

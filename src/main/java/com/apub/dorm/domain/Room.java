@@ -2,19 +2,23 @@ package com.apub.dorm.domain;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.Cascade;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,6 +35,8 @@ public class Room {
 	@ManyToOne(cascade = CascadeType.ALL)
 	//@JoinColumn(referencedColumnName = "buildingNo")
 	private Building building;
+
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "room")
 	private List<Student> students;
 
@@ -38,8 +44,10 @@ public class Room {
 	@JoinTable
 	@JsonIgnore
 	private List<Item> items;
+	@NotNull
 	private int roomNo;
-	private String roomStatus;
+	@Column(name = "roomStatus")
+	private String roomStatus = "Yes";
 
 	@Transient
 	@JsonIgnore
@@ -102,7 +110,10 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return "Room [id=" + id + ", students=" + students + ", roomNo=" + roomNo + ", roomStatus=" + roomStatus + "]";
+		return "Room [id=" + id + ", building=" + building + ", students=" + students + ", items=" + items + ", roomNo="
+				+ roomNo + ", roomStatus=" + roomStatus + ", itemIds=" + itemIds + "]";
 	}
+
+	
 
 }

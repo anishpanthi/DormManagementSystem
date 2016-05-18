@@ -10,8 +10,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,7 +24,6 @@ public class Building {
 	private String buildingAddress;
 	private String buildingType;
 	private int buildingNo;
-
 	@OneToMany(fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.ALL, mappedBy = "building")
 	@JsonIgnore
 	private List<Room> rooms;

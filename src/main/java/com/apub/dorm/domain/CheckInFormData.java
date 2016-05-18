@@ -1,61 +1,66 @@
 package com.apub.dorm.domain;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Arrays;
 
+public class CheckInFormData implements Serializable {
 
-public class CheckInFormData implements Serializable{
-	
 	private static final long serialVersionUID = 1L;
 
-
-	private List<Integer> id;
-	private List<String> itemName;
-	private List<String> description;
-	private List<Boolean> available;
-	private List<String> status;
+	private Integer[] id;
+	private String[] itemName;
+	private String[] description;
+	private Boolean[] available;
+	private String[] status;
 
 	public CheckInFormData() {
 
 	}
 
-	public List<Integer> getId() {
+	public Integer[] getId() {
 		return id;
 	}
 
-	public void setId(List<Integer> id) {
+	public void setId(Integer[] id) {
 		this.id = id;
 	}
 
-	public List<String> getItemName() {
+	public String[] getItemName() {
 		return itemName;
 	}
 
-	public void setItemName(List<String> itemName) {
+	public void setItemName(String[] itemName) {
 		this.itemName = itemName;
 	}
 
-	public List<String> getDescription() {
+	public String[] getDescription() {
 		return description;
 	}
 
-	public void setDescription(List<String> description) {
+	public void setDescription(String[] description) {
 		this.description = description;
 	}
 
-	public List<Boolean> getAvailable() {
+	public Boolean[] getAvailable() {
 		return available;
 	}
 
-	public void setAvailable(List<Boolean> available) {
+	public void setAvailable(Boolean[] available) {
 		this.available = available;
 	}
 
-	public List<String> getStatus() {
+	public String[] getStatus() {
 		return status;
 	}
 
-	public void setStatus(List<String> status) {
+	public void setStatus(String[] status) {
 		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "CheckInFormData [id=" + Arrays.toString(id) + ", itemName=" + Arrays.toString(itemName)
+				+ ", description=" + Arrays.toString(description) + ", available=" + Arrays.toString(available)
+				+ ", status=" + Arrays.toString(status) + "]";
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.apub.dorm.domain.CheckInForm;
+import com.apub.dorm.domain.Student;
 import com.apub.dorm.repository.CheckInRepository;
 import com.apub.dorm.service.CheckInService;
 
@@ -25,6 +26,11 @@ public class CheckInServiceImpl implements CheckInService {
 	@Override
 	public List<CheckInForm> findAll() {
 		return checkInRepository.findAll();
+	}
+
+	@Override
+	public List<CheckInForm> findByStudent(Student student) {
+		return checkInRepository.findByStudent(student);
 	}
 
 }

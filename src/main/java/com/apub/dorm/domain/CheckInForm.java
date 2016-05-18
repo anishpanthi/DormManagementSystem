@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class CheckInForm implements Serializable{
@@ -21,7 +23,11 @@ public class CheckInForm implements Serializable{
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
 	private boolean available;
 	private String status;
-
+	
+	@JoinColumn(name="student_id")
+	@OneToOne
+	private Student student;
+	
 	public CheckInForm() {
 
 	}
@@ -64,5 +70,13 @@ public class CheckInForm implements Serializable{
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 }
