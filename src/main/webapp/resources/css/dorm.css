@@ -132,6 +132,29 @@ div#dorm-footer {
 nav#dorm-nav {
 	margin-top: -1%;
 }
+
+
+/********ROOM *******//
+.row-message{
+	margin-top: 5%;
+    width: 50%;
+    margin-bottom: 1%;
+}
+
+.add-form{
+	width: 60%;
+    margin: auto;
+    /* border: 2px solid #EAEAEA; */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: #fff;
+    padding: 1%;
+}
+
+.dynamic-checkboxes input[type=checkbox],.checkbox-inline{
+	margin-left:10px;
+	margin-right:2px;
+}
 /**** OVERRIDE BootStrap ****/
 .panel {
 	background-color: rgba(245, 250, 255, 0.94);
