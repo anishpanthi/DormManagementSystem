@@ -8,7 +8,6 @@ import com.apub.dorm.domain.Building;
 import com.apub.dorm.domain.Item;
 import com.apub.dorm.domain.Maintenance;
 import com.apub.dorm.domain.Room;
-import com.apub.dorm.domain.RoomInfo;
 
 @Service
 public interface RoomService {
@@ -20,8 +19,6 @@ public interface RoomService {
 	public List<Item> getAllItems();
 	
 	public List<Room> getAllRooms();
-	
-	public List<RoomInfo> findAll();
 
 	public Room findOne(Integer id);
 	

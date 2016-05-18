@@ -11,7 +11,6 @@ import com.apub.dorm.domain.Building;
 import com.apub.dorm.domain.Item;
 import com.apub.dorm.domain.Maintenance;
 import com.apub.dorm.domain.Room;
-import com.apub.dorm.domain.RoomInfo;
 import com.apub.dorm.repository.ItemRepository;
 import com.apub.dorm.repository.RoomRepository;
 import com.apub.dorm.service.RoomService;
@@ -53,15 +52,6 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public List<Room> getAllRooms() {
 		return roomRepository.findAll();
-	}
-	
-	@Override
-	public List<RoomInfo> findAll() {
-		List<RoomInfo> roomInfo = new ArrayList<>();
-		for(Room room : roomRepository.findAll()){
-			roomInfo.add(new RoomInfo(room.getRoomNo(), room.getRoomStatus()));
-		}
-		return roomInfo;
 	}
 	
 	@Override
