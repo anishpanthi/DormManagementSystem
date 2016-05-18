@@ -12,11 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-
-
-
-
-
 /**
  *
  * @author Anish Panthi

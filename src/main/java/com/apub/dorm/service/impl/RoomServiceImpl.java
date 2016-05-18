@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.apub.dorm.domain.Item;
 import com.apub.dorm.domain.Room;
+import com.apub.dorm.repository.BuildingRepository;
 import com.apub.dorm.repository.ItemRepository;
 import com.apub.dorm.repository.RoomRepository;
 import com.apub.dorm.service.RoomService;
@@ -21,6 +22,9 @@ public class RoomServiceImpl implements RoomService {
 	
 	@Autowired
 	private ItemRepository itemRepository;
+	
+	@Autowired
+	private BuildingRepository buildingRepository;
 
 	@Override
 	public void create(Room room) {
@@ -38,8 +42,8 @@ public class RoomServiceImpl implements RoomService {
 		for(Room room : roomRepository.findAll()) {
 			if(room.getBuildingNo() == buildingNumber) result.add(room);
 		}*/
-		
-		return null;
+		System.out.println(buildingNumber+" ===== "+roomRepository.findRoomNumbersByBuildingNo(buildingNumber).toString());
+		return roomRepository.findRoomNumbersByBuildingNo(buildingNumber);
 	}
 
 	@Override

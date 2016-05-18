@@ -1,16 +1,16 @@
 package com.apub.dorm.domain;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.Transient;
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -28,15 +28,23 @@ public class Student {
 	private String username;
 	private String password;
 	private String email;
-	private String phone;
 	private String country;
 	private String major;
-	private String userRole;
+	private String userRole="ROLE_ADMIN";
 	private String entryDate;
+	private String studentId;
+	private String phoneNumber;
+	@Transient
+	private Integer buildingNo;
+	@Transient
+	private Integer roomNo;
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn
 	private Room room;
-
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn
+	private Building buiding;
+	
 	public Student() {
 
 	}
@@ -114,13 +122,14 @@ public class Student {
 	public void setMajor(String major) {
 		this.major = major;
 	}
+	
 
-	public Room getRoom() {
-		return room;
+	public Building getBuiding() {
+		return buiding;
 	}
 
-	public void setRoom(Room room) {
-		this.room = room;
+	public void setBuiding(Building buiding) {
+		this.buiding = buiding;
 	}
 
 	public void setEmail(String email) {
@@ -143,12 +152,45 @@ public class Student {
 	public void setEntryDate(String entryDate) {
 		this.entryDate = entryDate;
 	}
-
-	public String getPhone() {
-		return phone;
+	public String getStudentId() {
+		return studentId;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Integer getBuildingNo() {
+		return buildingNo;
+	}
+
+	public void setBuildingNo(Integer buildingNo) {
+		this.buildingNo = buildingNo;
+	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+	public Integer getRoomNo() {
+		return roomNo;
+	}
+
+	public void setRoomNo(Integer roomNo) {
+		this.roomNo = roomNo;
+	}
+	
+	
 }

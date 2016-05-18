@@ -27,7 +27,7 @@
 	src="<c:url value="/resources/js/jquery-1.12.3.min.js" />"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<script type="text/javascript"
+<%-- <script type="text/javascript"
 	src="<c:url value="/resources/js/picker.js" />"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/picker.date.js" />"></script>
@@ -35,13 +35,14 @@
 	src="<c:url value="/resources/js/picker.time.js" />"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/customdate.js" />"></script>
-<script type="text/javascript"
+
+<script type="text/javascript" src='<c:url value="/resources/js/dateTimePicker.js" />'></script>
+ --%><script type="text/javascript" src='<c:url value="/resources/js/buildingChange.js" />'></script>
+	<script type="text/javascript"
 	src="<c:url value="/resources/js/custom.js" />"></script>
-	
 <!-- Angular JS -->	
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/app.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
 
 <style>
 </style>

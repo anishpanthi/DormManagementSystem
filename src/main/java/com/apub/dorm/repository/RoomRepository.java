@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.apub.dorm.domain.Building;
@@ -14,8 +15,8 @@ import com.apub.dorm.domain.Room;
 public interface RoomRepository extends JpaRepository<Room, Serializable> {
 	
 	Room findById(int id);
-	
-//	public List<Building> findRoomNumbersByBuildingNo(int buildingNumber);
+	@Query("FROM Room r WHERE r.building.buildingNo=:buildingNumber")
+	public List<Room> findRoomNumbersByBuildingNo(int buildingNumber);
 //	public List<Room> findByStudent(Student student);
 
 }
