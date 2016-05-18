@@ -46,7 +46,7 @@ public class MaintenanceServiceImpl implements MaintenanceService{
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		maintenanceRepository.delete(id);
 		
 	}
 
@@ -55,7 +55,4 @@ public class MaintenanceServiceImpl implements MaintenanceService{
 		return maintenanceRepository.findByStudent(student);
 	}
 
-	
-	
-	
 }

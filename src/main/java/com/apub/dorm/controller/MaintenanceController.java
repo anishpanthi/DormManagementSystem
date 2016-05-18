@@ -34,9 +34,9 @@ public class MaintenanceController {
 	private Student loggedInStudent;
 	
 	@RequestMapping(value=STUDENT_PATH,method=RequestMethod.GET)
-	public String index(Model model, Principal principal){
+	public String index(Maintenance maintenance, Model model, Principal principal){
 		loggedInStudent  = studentService.findByUsername(principal.getName());
-		Maintenance maintenance = new Maintenance();
+		//Maintenance maintenance = new Maintenance();
 		maintenance.setStudent(loggedInStudent);
 		model.addAttribute("maintenance", maintenance);
 		model.addAttribute("student",loggedInStudent);
@@ -53,9 +53,26 @@ public class MaintenanceController {
 		return "redirect:/auth/student"; //PRG Pattern
 	}
 	
+	/********************* Update Maintenance Request By ID **********/
+	//------------------GET REQUEST ---------------------//
+	@RequestMapping(value=STUDENT_PATH +"/edit/{id}",method=RequestMethod.GET)
+	public String updateMaintenanceForm(@PathVariable Integer id, Model model,Principal principal){
+		return index(maintenanceService.findOne(id),model,principal);
+		
+	}
+	/********************* Update Maintenance Request By ID **********/
+	//------------------POST REQUEST ---------------------//
+	@RequestMapping(value=STUDENT_PATH +"/edit/{id}",method=RequestMethod.POST)
+	public String updateMaintenance(@PathVariable Integer id,Maintenance maintenance, Model model,Principal principal){
+		maintenance.setStatus("New");
+		maintenanceService.update(maintenance, id);
+		return "redirect:/auth/student"; //PRG Pattern
+		
+	}
+	
 	/**
 	 * 
-	 * @return
+	 * For STAFF
 	 */
 	@RequestMapping(value=STAFF_PATH,method=RequestMethod.GET)
 	public String getAllMaintenanceRequest(Model model){
@@ -82,4 +99,5 @@ public class MaintenanceController {
 		redirectAttributes.addFlashAttribute("postMessage", "Maintenance request was updated successfuly");
 		return "redirect:/"+STAFF_PATH;
 	}
+
 }

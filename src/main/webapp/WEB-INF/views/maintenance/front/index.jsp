@@ -28,7 +28,7 @@
 			<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 				<div class="form-group">
 					<label for="title">Title</label>
-					<form:input path="title"  class="form-control" id="title" />
+					<form:input path="title" class="form-control" id="title" />
 				</div>
 				<div class="form-group">
 					<label for="description">Description</label>

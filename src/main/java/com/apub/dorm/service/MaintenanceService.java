@@ -19,5 +19,6 @@ public interface MaintenanceService {
 	public void update(Maintenance maintenance, int id);
 	
 	public List<Maintenance> findByStudent(Student student);
+
 	
 }

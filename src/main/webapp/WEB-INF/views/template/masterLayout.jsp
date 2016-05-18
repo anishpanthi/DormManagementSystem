@@ -4,8 +4,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html ng-app="dormApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>APUB - Dormitory Management System</title>
@@ -17,8 +17,12 @@
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/default.time.css" />"
 	rel="stylesheet" type="text/css" />
-	<link href="<c:url value="resources/css/login.css" />"
+	<link href="<c:url value="/resources/css/login.css" />"
 	rel="stylesheet" type="text/css" />
+	
+	<link href="<c:url value="/resources/css/dorm.css" />"
+	rel="stylesheet" type="text/css" />
+	
 <script type="text/javascript"
 	src="<c:url value="/resources/js/jquery-1.12.3.min.js" />"></script>
 <script type="text/javascript"
@@ -33,12 +37,17 @@
 	src="<c:url value="/resources/js/customdate.js" />"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/custom.js" />"></script>
+	
+<!-- Angular JS -->	
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/app.js" />"></script>
 
 <style>
 </style>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" ng-controller="DormController as dorm">
 		<!-- Header -->
 		<tiles:insertAttribute name="header" />
 		<!-- Menu Page -->
@@ -52,7 +61,7 @@
 		<!-- Footer Page -->
 		<!-- 		<div style="margin-top: 10px;"> -->
 		<tiles:insertAttribute name="footer" />
-		<!-- 		</div> -->
+		<!-- End of Container Fluid		-->
 	</div>
 </body>
 </html>

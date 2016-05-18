@@ -49,7 +49,7 @@
 	</definition>
 	
 	<definition name="maintenance/index" extends="DefaultTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/maintenance/admin/index.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/maintenance/front/index.jsp" />
 	</definition>
 	
 	<definition name="maintenance/list" extends="DefaultTemplate">

@@ -58,35 +58,44 @@
 						</div>
 					</div>
 				</c:if>
-				<div class="panel panel-default">
-					<div class="panel-heading">Maintainence Request History</div>
-					<div class="panel-body">
-						<table class="table">
-							<tr>
-								<th>S.No</th>
-								<th>Title</th>
-								<th>Description</th>
-								<th>Registered Date</th>
-								<th>Status</th>
-								<th>Last Updated Date</th>
-							</tr>
-
-							<c:forEach items="${maintenances}" var="maintenance"
-								varStatus="counter">
+				<div style="padding: 1.2%;" class="row">
+					<a class="btn btn-info"
+						href='<c:url value="student/maintenance" />'> <span
+						class="glyphicon glyphicon-plus"></span> Add Maintenance Request
+					</a>
+				</div>
+			
+				<c:if test="${!empty maintenances}">
+					<div class="panel panel-default">
+						<div class="panel-heading">Maintainence Request History</div>
+						<div class="panel-body">
+							<table class="table">
 								<tr>
-									<td><c:out value="${counter.index +1}" /></td>
-									<td>${maintenance.title}</td>
-									<td>${maintenance.description}</td>
-									<td>${maintenance.registeredDate}</td>
-									<td>${maintenance.status}</td>
-									<td>${maintenance.updatedDate}</td>
+									<th>S.No</th>
+									<th>Title</th>
+									<th>Description</th>
+									<th>Registered Date</th>
+									<th>Status</th>
+									<th>Operation</th>
+								</tr>
+
+								<tr ng-repeat="maintenance in dorm.maintenances">
+									<td>{{$index+1}}</td>
+									<td>{{maintenance.title}}</td>
+									<td>{{maintenance.description}}</td>
+									<td>{{maintenance.registeredDate | date :"yyyy-MM-dd HH:mm:ss"}}</td>
+									<td>{{maintenance.status}}</td>
+									<td>
+									<a href="student/maintenance/edit/{{maintenance.id}}">Edit</a>
+									<a
+										href='#' ng-click="dorm.remove(maintenance.id)">Delete</a></td>
 
 								</tr>
-							</c:forEach>
 
-						</table>
+							</table>
+						</div>
 					</div>
-				</div>
+				</c:if>
 			</div>
 
 			<div class="row">
@@ -166,3 +175,4 @@
 
 	</div>
 </div>
+
