@@ -60,11 +60,11 @@ public class BuildingServiceImpl implements BuildingService {
 	/*@Override
 	public List<Room> findRoomByBuilding(Building building) {
 		return roomRepository.findRoomByBuilding(building);
-	}
+	}*/
 	
 	@Override
-	public List<Room> findRoomById(Integer buildingId) {
-		return roomRepository.findRoomById(buildingId);
-	}*/
+	public List<Room> findRoomByBuildingId(Integer buildingId) {
+		return roomRepository.findRoomByBuildingId(buildingId);
+	}
 
 }

@@ -31,7 +31,7 @@ public class BuildingInfoController {
 			model.addAttribute("building", building);
 			 System.out.println("id: "+building.getId());
 			 if(building.getId() != null)
-			model.addAttribute("roomsByBuilding", buildingService.findRoomById(building.getId()));
+			model.addAttribute("roomsByBuilding", buildingService.findRoomByBuildingId(building.getId()));
 		} else {
 			model.addAttribute("building", new Building());
 		}

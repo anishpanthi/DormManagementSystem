@@ -22,5 +22,5 @@ public interface BuildingService {
 
 //	List<Room> findRoomByBuilding(Building building);
 //
-//	public List<Room> findRoomById(Integer buildingId);
+	public List<Room> findRoomByBuildingId(Integer buildingId);
 }
