@@ -4,8 +4,8 @@
 				<li class="list-group-item"><a href='#'>Change Room</a></li>
 				<li class="list-group-item"><a href='#'>Request Maintenance</a>
 				</li>
-				<li class="list-group-item"><a href='#'>Arrival Departure
-						Form</a></li>
+				<li class="list-group-item"><a href='#'>Arrival Form</a></li>
+				<li class="list-group-item"><a href='#'>Arrival Form</a></li>
 			</ul>
 		</div>
 

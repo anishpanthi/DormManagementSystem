@@ -9,9 +9,9 @@ body {
 /*** For Student Landing Page ***/
 .student {
 	color: rgba(52, 82, 107, 0.78);
-    background: rgba(241, 248, 255, 0.75);
+    background: rgb(251, 251, 251);
     padding: 10px;
-    border-bottom: 2px solid rgba(106, 126, 132, 0.48);
+    border-top: 2px solid rgb(148, 172, 191);
     font-size: .9em;
     margin-top: 1.1em;
 }
@@ -24,7 +24,8 @@ body {
 	height: 40px;
 	border-radius: 0;
 	margin-left: 1%;
-	margin-top: 1%; border : 1px solid #479CB5;
+	margin-top: 1%;
+	border: 1px solid #479CB5;
 	background: #fff;
 	color: #438DA2;
 	padding: 10px;
@@ -32,7 +33,7 @@ body {
 }
 
 .dorm-add-btn:hover {
-	background: #5BC0DE;
+	background:rgba(76, 112, 156, 0.94);
 	color: #fff;
 }
 
@@ -45,43 +46,66 @@ body {
 	margin-right: -4%;
 }
 
-.dorm-rd{
-	margin-right: 5%;
-	width:100%;
+.dorm-rd {
+	margin-top: 2%;
+	width: 100%;
 }
 
-.dorm-rd-rd{
-	
+.dorm-rd-rd {
+	background: #F4F9FE;
+	padding: 10px;
+	color: #7A777B;
+	margin-bottom: 5px;
+	border-top: 4px solid rgba(76, 112, 156, 0.94);
 }
-.dorm-rd-ra{
-	
+
+.dorm-rd-ra {
+	background: #FDFDFD;
+	padding: 10px;
+	color: #7A777B;
+	margin-bottom: 5px;
+	border-top: 4px solid rgba(76, 112, 156, 0.94);
 }
+
+.dorm-important-contact:not (:last-child ){
+	border-right: 2px solid #D8D8D8;
+	padding-right: 2%;
+}
+
+h4.dorm-important-contact-h4 {
+	border-bottom: 2px solid #D8D8D8;
+	padding-bottom: 2%;
+	margin-bottom: 2%;
+	margin-top:2%;
+	padding-top:2%;
+}
+
 label.member-after-login-welcome {
-	    color: #31669C;
-    font-size: 0.8em;
-    line-height: 2.2em;
+	color: #31669C;
+	font-size: 0.8em;
+	line-height: 2.2em;
 }
 
 div#leftcontent {
 	margin-top: 1%;
 }
 
-div#rightcontent{
+div#rightcontent {
 	margin-top: 2%;
 }
 
 div#leftcontent li.list-group-item {
 	width: 121%;
-    margin-left: -15%;
-    border-radius: 0;
-    background-color: rgb(241, 248, 255);
-    color: #4A6E8C;
+	margin-left: -15%;
+	border-radius: 0;
+	background-color: rgb(241, 248, 255);
+	color: #4A6E8C;
 }
 
-@media (max-width: 768px){
+@media ( max-width : 768px) {
 	div#leftcontent li.list-group-item {
-	width: 100%;
-    margin-left:0;
+		width: 100%;
+		margin-left: 0;
 	}
 }
 
@@ -93,7 +117,7 @@ div#leftcontent li.list-group-item>a {
 div#leftcontent li.list-group-item:hover {
 	font-weight: bold;
 	text-decoration: none;
-	background:#F7F7F7;
+	background: #F7F7F7;
 }
 
 div#dorm-lang {
@@ -109,17 +133,22 @@ nav#dorm-nav {
 	margin-top: -1%;
 }
 /**** OVERRIDE BootStrap ****/
+.panel {
+	background-color: rgba(245, 250, 255, 0.94);
+}
+
 .panel-default>.panel-heading {
 	background-color: #498AC1;
 	border-color: #498AC1;
 	color: #FDFDFD;
 	font-weight: 600;
+	border-radius: 0;
 }
 
-.navbar-nav{
-	float:none;
+.navbar-nav {
+	float: none;
 }
 
-.navbar-brand{
+.navbar-brand {
 	margin-top: -12%;
 }
