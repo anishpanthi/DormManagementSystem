@@ -1,4 +1,4 @@
-#login body, html {
+#login > body {
 	height: 100%;
 	background-repeat: no-repeat;
 	background-image: linear-gradient(rgb(200, 220, 220), rgb(220, 220, 200));

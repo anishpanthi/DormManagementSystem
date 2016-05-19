@@ -3,7 +3,7 @@
 
 <div class="container" onload='document.loginForm.username.focus();'>
 	<div class="card card-container">
-		<a href="/dormmanagement">Goto Home</a> <img id="profile-img"
+		<img id="profile-img"
 			class="profile-img-card"
 			src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 		<p id="profile-name" class="profile-name-card"></p>

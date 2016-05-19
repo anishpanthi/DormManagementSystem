@@ -78,8 +78,8 @@
 			self.initStudentId(id);
 			self.getMaintenances();
 			self.getBuildings()
-			self.getCheckInItems(self.studentId);
-			self.getCheckOutItems(self.studentId);
+			self.getCheckInItems(id);
+			self.getCheckOutItems(id);
 		};
 		
 		

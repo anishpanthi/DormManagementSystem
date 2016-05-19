@@ -46,15 +46,8 @@ public class HomeController {
 	HttpSession session = null;
 
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
-	public ModelAndView home(Locale locale) {
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("serverTime", formattedDate);
-		model.setViewName("home");
-		return model;
+	public String home() {
+		return "login";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
