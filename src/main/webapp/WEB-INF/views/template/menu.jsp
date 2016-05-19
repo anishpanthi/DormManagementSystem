@@ -20,14 +20,16 @@
 
 		</div>
 		<ul class="nav nav-pills nav-tabs navbar-nav">
-			
+
 		</ul>
-		<ul class="nav navbar-nav navbar-right" style="margin-top:1%;margin-right: 2%;">
+		<ul class="nav navbar-nav navbar-right"
+			style="margin-top: 1%; margin-right: 2%;">
 
 			<li><c:if
 					test="${pageContext.request.userPrincipal.name != null}">
 					<p class=" text-info">
 						Welcome : ${pageContext.request.userPrincipal.name} | <a
+							style="color: inherit; text-decoration: none;"
 							href="javascript:formSubmit()"><span
 							class="glyphicon glyphicon-off"></span> <spring:message
 								code="auth.label.logout" /></a>
