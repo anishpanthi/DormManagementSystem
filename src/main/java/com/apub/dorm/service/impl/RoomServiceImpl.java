@@ -38,15 +38,15 @@ public class RoomServiceImpl implements RoomService {
 		roomRepository.save(room);
 	}
 
-	@Override
+	/*@Override
 	public List<Room> findRoomNumbersByBuildingNo(int buildingNumber) {
-		/*List<Room> result = new ArrayList<>();
+		List<Room> result = new ArrayList<>();
 		for(Room room : roomRepository.findAll()) {
 			if(room.getBuildingNo() == buildingNumber) result.add(room);
-		}*/
+		}
 		System.out.println(buildingNumber+" ===== "+roomRepository.findRoomNumbersByBuildingNo(buildingNumber).toString());
 		return roomRepository.findRoomNumbersByBuildingNo(buildingNumber);
-	}
+	}*/
 
 	@Override
 	public List<Item> getAllItems() {
