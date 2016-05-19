@@ -5,7 +5,7 @@
 <br />
 <br />
 <div class="panel panel-default">
-	<div class="panel-heading">Student CheckIn Request</div>
+	<div class="panel-heading">Student CheckIn Request Details</div>
 	<div class="panel-body">
 		<table class="table">
 			<tr>
