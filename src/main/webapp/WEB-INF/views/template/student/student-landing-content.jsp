@@ -90,7 +90,7 @@
 						<td>{{$index+1}}</td>
 						<td>{{item.itemName}}</td>
 						<td>{{item.description}}</td>
-						<td>{{2+4}}</td>
+						<td>{{item.created | date :"yyyy-MM-dd HH:mm:ss"}}</td>
 						<td>{{item.status}}</td>
 					</tr>
 				</table>
