@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div id="maincontent" class="col-md-8 col-sm-12">
 	<div class="display-list">
 		<c:if test="${!empty postMessage}">
