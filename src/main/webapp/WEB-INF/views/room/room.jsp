@@ -15,14 +15,15 @@
 		</c:if>
 		<form:form commandName="room" method="post" class="form-horizontal">
 			<div>
-				<form:errors path="*" />
+				<form:errors path="*" element="div" />
 			</div>
 			<div class="form-group">
 				<div class="row">
 					<label for="roomNo" class="col-xs-3 control-label">Room No</label>
 					<div class="col-xs-5">
 						<form:input type="text" class="form-control" id="roomNo"
-							path="roomNo" placeholder="Room No" required="required" />
+							path="roomNo" placeholder="Room No" />
+						<form:errors path="roomNo" />
 					</div>
 				</div>
 			</div>
@@ -31,8 +32,14 @@
 					<label for="buildingNo" class="col-xs-3 control-label">Room
 						Items</label>
 					<div class="dynamic-checkboxes col-xs-5">
-						<form:checkboxes items="${itemList}" itemLabel="itemName"
-							itemValue="id" path="itemIds" />
+						<c:if test="${empty edit}">
+							<form:checkboxes items="${itemList}" itemLabel="itemName"
+								itemValue="id" path="itemIds" />
+						</c:if>
+						<c:if test="${!empty edit}">
+							<form:checkboxes items="${itemList}" checked="checked"
+								itemLabel="itemName" itemValue="id" path="itemIds" />
+						</c:if>
 					</div>
 				</div>
 			</div>

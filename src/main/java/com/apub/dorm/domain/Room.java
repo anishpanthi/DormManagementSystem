@@ -13,7 +13,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,18 +30,20 @@ public class Room {
 	private Integer id;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	//@JoinColumn(referencedColumnName = "buildingNo")
+	// @JoinColumn(referencedColumnName = "buildingNo")
 	private Building building;
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "room")
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "room")
 	private List<Student> students;
 
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable
 	private List<Item> items;
-	@NotNull
+
+	@NotNull(message = "Room Number Can Not be empty")
+	@Min(1)
 	private int roomNo;
 	@Column(name = "roomStatus")
 	private String roomStatus = "Yes";
@@ -63,6 +67,7 @@ public class Room {
 	public void setRoomNo(int roomNo) {
 		this.roomNo = roomNo;
 	}
+
 	public Building getBuilding() {
 		return building;
 	}
@@ -108,7 +113,5 @@ public class Room {
 		return "Room [id=" + id + ", building=" + building + ", students=" + students + ", items=" + items + ", roomNo="
 				+ roomNo + ", roomStatus=" + roomStatus + ", itemIds=" + itemIds + "]";
 	}
-
-	
 
 }

@@ -17,12 +17,13 @@
 		</div>
 		<form:form commandName="building" class="form-horizontal"
 			method="POST">
+			<form:errors path="*" />
 			<div class="form-group">
 				<label for="buildingNo" class="col-xs-3 control-label">Building
 					No</label>
 				<div class="col-xs-5">
 					<form:input type="text" class="form-control" id="buildingNo"
-						path="buildingNo" placeholder="Building No" />
+						path="buildingNo" placeholder="Building No" required="required" />
 				</div>
 			</div>
 			<div class="form-group">

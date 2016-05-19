@@ -2,17 +2,16 @@ package com.apub.dorm.domain;
 
 import java.util.List;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,9 +22,11 @@ public class Building {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@NotEmpty(message = "Building Name cannot be Empty")
 	private String buildingName;
 	private String buildingAddress;
 	private String buildingType;
+	@Min(1)
 	private int buildingNo;
 
 	@JsonIgnore

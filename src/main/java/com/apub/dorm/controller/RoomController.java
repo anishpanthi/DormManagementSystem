@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.apub.dorm.domain.Building;
 import com.apub.dorm.domain.Room;
 import com.apub.dorm.service.RoomService;
 
@@ -24,7 +23,12 @@ public class RoomController {
 
 	@RequestMapping
 	public String getRoomForm(Room room, Model model) {
-		model.addAttribute("room", room);
+		if (room != null) {
+			model.addAttribute("room", room);
+			model.addAttribute("edit", "yes");
+		} else {
+			model.addAttribute("room", new Room());
+		}
 		model.addAttribute("itemList", roomService.getAllItems());
 		return "room/room";
 
@@ -39,16 +43,16 @@ public class RoomController {
 		}
 		return "redirect:/auth/admin/room";
 	}
-	
+
 	/********************* Update Room Request By ID **********/
-	//------------------POST REQUEST ---------------------//
-	@RequestMapping(value="/edit/{id}",method=RequestMethod.POST)
-	public String updateRoom(@PathVariable Integer id,@Valid Room room, Model model){
+	// ------------------POST REQUEST ---------------------//
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+	public String updateRoom(@PathVariable Integer id, @Valid Room room, Model model) {
 		roomService.update(room, id);
-		return "redirect:/auth/admin/room"; //PRG Pattern
-		
+		return "redirect:/auth/admin/room"; // PRG Pattern
+
 	}
-	
+
 	/********************* Update Room Request By ID **********/
 	// ------------------GET REQUEST ---------------------//
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
