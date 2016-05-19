@@ -35,7 +35,7 @@ public class Student implements Serializable{
 	private String email;
 	private String country;
 	private String major;
-	private String userRole="ROLE_ADMIN";
+	private String userRole="ROLE_STUDENT";
 	private String entryDate;
 	private String studentId;
 	private String phoneNumber;

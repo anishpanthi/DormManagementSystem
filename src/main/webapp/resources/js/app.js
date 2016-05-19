@@ -73,6 +73,9 @@
 			});
 		};
 		
+		
+		/*********GET ROOMS From Buildings *****/
+		
 		/********Required method when page loads ***/
 		this.init = function(id){
 			self.initStudentId(id);

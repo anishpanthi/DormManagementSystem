@@ -101,7 +101,7 @@
 							Building:</label>
 						<div class="">
 							<form:select path="buildingNo" id="buildingNo"
-								class="btn btn-default dropdown-toggle form-control">
+								class="btn btn-default dropdown-toggle form-control" ng-click="dorm.getRooms()">
 								<form:option value="">--Select--</form:option>
 								<c:forEach var="building" items="${buildings}">
 									<form:option value="${building.buildingNo}">${building.buildingNo}</form:option>
@@ -115,6 +115,9 @@
 							<form:select class="btn btn-default dropdown-toggle form-control"
 								id="roomNo" path="roomNo">
 								<form:option value="">--Select--</form:option>
+								<form:option ng-repeat="room in dorm.rooms" value="{{room.id}}">
+							      {{room.roomNo}}
+							    </form:option>
 							</form:select>
 						</div>
 					</div>
