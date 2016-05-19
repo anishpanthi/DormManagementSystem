@@ -3,7 +3,7 @@
 
 <div id="maincontent" class="col-md-8 col-sm-12">
 
-	<a class="btn btn-info" style="margin-bottom:1%;" href="${pageContext.request.contextPath}/auth/staff/viewCheckIn">
+	<a class="btn dorm-add-btn" style="margin-bottom:1%;" href="${pageContext.request.contextPath}/auth/staff/viewCheckIn">
 		<span class="glyphicon glyphicon-arrow-left"></span> Back
 
 	</a>
