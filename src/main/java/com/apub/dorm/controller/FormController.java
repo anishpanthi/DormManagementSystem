@@ -1,6 +1,10 @@
 package com.apub.dorm.controller;
 
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,7 +27,7 @@ import com.apub.dorm.service.ItemService;
 import com.apub.dorm.service.StudentService;
 
 @Controller
-@RequestMapping(value = "/auth/admin/form")
+@RequestMapping(value = "/auth/student/form")
 public class FormController {
 
 	@Autowired
@@ -60,7 +64,6 @@ public class FormController {
 		String[] descriptionCheckedItem = checkInFormData.getDescription();
 		String[] statusCheckedItem = checkInFormData.getStatus();
 		Boolean[] checkedItems = checkInFormData.getAvailable();
-		boolean flag = true;
 		for (int i = 0; i < idCheckedItem.length; i++) {
 			if (checkedItems[i]) {
 				CheckInForm checkInForm = new CheckInForm();
@@ -72,16 +75,21 @@ public class FormController {
 				
 				checkInForm.setStudent(loggedInStudent);
 				
+				DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+				Date date = new Date();
+				String dateString = dateFormat.format(date);
+				try {
+					Date dateObject = dateFormat.parse(dateString);
+					checkInForm.setCreated(dateObject);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+
 				checkInService.create(checkInForm);
-				flag=false;
 			}
 		}
 		
-		if(flag){
-			System.out.println("No Item Selected. CheckIn Form is Empty.");
-		}
-		
-		return "redirect:/auth/admin";
+		return "redirect:/auth/student";
 	}
 	
 	@RequestMapping(value="/checkoutForm", method=RequestMethod.GET)
@@ -113,6 +121,16 @@ public class FormController {
 				checkOutForm.setPreviousStatus(previousStatusCheckedItem[i]);
 				checkOutForm.setCurrentStatus(currentStatusCheckedItems[i]);
 				
+				DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+				Date date = new Date();
+				String dateString = dateFormat.format(date);
+				try {
+					Date dateObject = dateFormat.parse(dateString);
+					checkOutForm.setUpdated(dateObject);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
 				Student loggedInStudent = (Student)request.getSession().getAttribute("loggedInStudent");
 				System.out.println(loggedInStudent.getFirstName());
 				checkOutForm.setStudent(loggedInStudent);
@@ -120,6 +138,6 @@ public class FormController {
 				checkOutService.create(checkOutForm);
 		}
 		
-		return "redirect:/auth/admin";
+		return "redirect:/auth/student";
 	}
 }

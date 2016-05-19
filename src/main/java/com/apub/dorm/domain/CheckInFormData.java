@@ -2,6 +2,11 @@ package com.apub.dorm.domain;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 public class CheckInFormData implements Serializable {
 
@@ -12,7 +17,7 @@ public class CheckInFormData implements Serializable {
 	private String[] description;
 	private Boolean[] available;
 	private String[] status;
-
+	
 	public CheckInFormData() {
 
 	}

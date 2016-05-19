@@ -14,7 +14,77 @@
 			document.getElementById("logoutForm").submit();
 		}
 	</script>
+</div><br />
+<br />
+<div align="center">
+	<a href="${pageContext.request.contextPath}/auth/staff/viewCheckIn" class="btn btn-primary">View CheckIn</a>&nbsp;&nbsp;|
+	<a href="${pageContext.request.contextPath}/auth/staff/viewCheckOut" class="btn btn-primary">View CheckOut</a>&nbsp;&nbsp;
 </div>
 <p>
-<h1>This is Staff Page.</h1>
+<br />
+<!-- Display Staff Information -->
+<div
+	class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">Staff Profile</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-3 col-lg-3 " align="center">
+					<img alt="User Pic"
+						src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
+						class="img-circle img-responsive">
+				</div>
 
+				<div class=" col-md-9 col-lg-9 ">
+					<table class="table table-user-information">
+						<tbody>
+							<tr>
+								<td>First Name:</td>
+								<td>${user.firstName}</td>
+							</tr>
+							<tr>
+								<td>Middle Name:</td>
+								<td>${user.middleName}</td>
+							</tr>
+							<tr>
+								<td>Last Name:</td>
+								<td>${user.lastName}</td>
+							</tr>
+							<tr>
+								<td>Email:</td>
+								<td>${user.email}</td>
+							</tr>
+							<tr>
+								<td>House Number:</td>
+								<td>abc</td>
+							</tr>
+
+							<tr>
+								<td>Phone:</td>
+								<td>abc</td>
+							</tr>
+							<tr>
+								<td>State Name</td>
+								<td>abc</td>
+							</tr>
+							<tr>
+								<td>City</td>
+								<td>abc</td>
+							</tr>
+							<tr>
+								<td>Street Number</td>
+								<td>abc</td>
+							</tr>
+							<tr>
+								<td>Zip Code</td>
+								<td>abc</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

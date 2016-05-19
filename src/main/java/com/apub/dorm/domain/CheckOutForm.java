@@ -1,12 +1,16 @@
 package com.apub.dorm.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
 *
@@ -24,6 +28,10 @@ public class CheckOutForm implements Serializable {
 	private String description;
 	private String previousStatus;
 	private String currentStatus;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "updated", nullable = false)
+	private Date updated;
 	
 	@JoinColumn(name="student_id")
 	@OneToOne
@@ -79,5 +87,13 @@ public class CheckOutForm implements Serializable {
 
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+	
+	public Date getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(Date updated) {
+		this.updated = updated;
 	}
 }

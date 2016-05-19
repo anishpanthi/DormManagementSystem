@@ -11,4 +11,6 @@ public interface CheckInRepository extends JpaRepository<CheckInForm, Integer>{
 	
 	List<CheckInForm> findByStudent(Student student);
 	
+//	List<CheckInForm> findByStudentId(int id); 
+	
 }

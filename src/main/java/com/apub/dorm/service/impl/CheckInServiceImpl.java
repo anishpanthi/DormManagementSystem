@@ -33,4 +33,9 @@ public class CheckInServiceImpl implements CheckInService {
 		return checkInRepository.findByStudent(student);
 	}
 
+//	@Override
+//	public List<CheckInForm> findByStudentId(int id) {
+//		return checkInRepository.findByStudentId(id);
+//	}
+
 }

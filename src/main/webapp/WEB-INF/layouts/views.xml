@@ -81,4 +81,16 @@
 		<definition name="room/roomChangeRequest" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/roomchange/roomChangeRequest.jsp" />
 	</definition>
+	
+	<definition name="staff/viewCheckIn" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/staff/viewCheckIn.jsp" />
+	</definition>
+	
+	<definition name="staff/viewCheckOut" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/staff/viewCheckOut.jsp" />
+	</definition>
+	
+	<definition name="staff/viewCheckOut/details" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/staff/details.jsp" />
+	</definition>
 </tiles-definitions>

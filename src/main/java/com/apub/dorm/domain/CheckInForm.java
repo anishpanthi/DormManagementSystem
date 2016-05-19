@@ -1,6 +1,7 @@
 package com.apub.dorm.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class CheckInForm implements Serializable{
@@ -23,6 +26,11 @@ public class CheckInForm implements Serializable{
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
 	private boolean available;
 	private String status;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "created", nullable = false)
+	private Date created;
+
 	
 	@JoinColumn(name="student_id")
 	@OneToOne
@@ -78,5 +86,13 @@ public class CheckInForm implements Serializable{
 
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+	
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
 	}
 }

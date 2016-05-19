@@ -80,7 +80,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/feedback", method = RequestMethod.GET)
-	public String openAddMoviePage(Model model) {
+	public String openAddFeedbackPage(Model model) {
 		model.addAttribute("feedback", new Feedback());
 		return "feedback";
 	}
@@ -119,6 +119,10 @@ public class HomeController {
 
 	@RequestMapping(value = "/auth/staff", method = RequestMethod.GET)
 	public String afterAuthStaffPage(Model model) {
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String username = user.getUsername();
+		com.apub.dorm.domain.User appUser = userService.findByUsername(username);
+		model.addAttribute("user", appUser);
 		return "staffAuth";
 	}
 
