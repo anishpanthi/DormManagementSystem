@@ -76,6 +76,14 @@
 		
 		/*********GET ROOMS From Buildings *****/
 		
+		this.getBuildingRooms = function(id){
+			$http.get(
+					'http://localhost:8080/dormmanagement/api/room/all/'+id)
+						.success(function(data) {
+							self.buldingRooms = data;
+					});
+		};
+		
 		/********Required method when page loads ***/
 		this.init = function(id){
 			self.initStudentId(id);

@@ -24,6 +24,13 @@ public class RESTRoomController {
 	public List<Room> getRooms() {
 		return roomService.getAllRooms();
 	}
+	
+	/***********GET ROOMS FROM Buildings *************/
+	@RequestMapping(value = "/all/{id}", method = RequestMethod.GET)
+	public List<Room> getBuildingRooms(@PathVariable Integer id) {
+		return roomService.findRoomNumbersByBuildingNo(id);
+	}
+
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)

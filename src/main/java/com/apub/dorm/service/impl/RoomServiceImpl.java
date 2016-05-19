@@ -40,8 +40,7 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public List<Room> findRoomNumbersByBuildingNo(int buildingNumber) {
-//		return roomRepository.findRoomNumbersByBuildingNo(buildingNumber);
-	return null;
+		return roomRepository.findRoomNumbersByBuildingNo(buildingNumber);
 	}
 
 	@Override

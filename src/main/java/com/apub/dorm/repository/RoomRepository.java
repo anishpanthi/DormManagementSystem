@@ -20,8 +20,8 @@ public interface RoomRepository extends JpaRepository<Room, Serializable> {
 	
 //	public List<Building> findRoomNumbersByBuildingNo(int buildingNumber);
 	Room findById(int id);
-//	@Query("FROM Room r WHERE r.building.buildingNo=:buildingNumber")
-//	public List<Room> findRoomNumbersByBuildingNo(int buildingNumber);
-//	public List<Room> findByStudent(Student student);
+	@Query("FROM Room r WHERE r.building.buildingNo=:buildingNumber")
+	public List<Room> findRoomNumbersByBuildingNo(int buildingNumber);
+	//public List<Room> findByStudent(Student student);
 
 }
